@@ -1,0 +1,18 @@
+# Fichier : ~/Atlas-Groupe-Agri-Market/backend/.gitignore
+
+# Fichiers de variables d'environnement (NE JAMAIS COMMITER !)
+.env
+.env.development
+.env.production
+.env.local
+
+# Dépendances Node
+node_modules/
+
+# Fichiers de logs
+*.log
+npm-debug.log*
+
+# Fichiers de build ou temporaires si votre backend en génère
+dist/
+build/

@@ -1,0 +1,896 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Marché Agricole - Votre Passerelle Agri-Tech au Burkina Faso</title>
+    <meta name="description" content="Atlas Marché Agricole : La plateforme de référence pour l'achat, la vente d'intrants et de récoltes, et le crédit agricole au Burkina Faso. Connectez-vous, développez-vous.">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png"> 
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50"> <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Couleurs du thème */
+            --primary-color: #4CAF50; /* Vert Agriculture - Moderne et Apaisant */
+            --primary-dark: #388E3C; /* Vert plus foncé pour les interactions */
+            --secondary-color: #333; /* Texte et éléments sombres */
+            --accent-orange: #FFC107; /* Jaune orangé pour les actions secondaires */
+            --accent-orange-dark: #FFA000; /* Jaune orangé plus foncé */
+            --accent-blue: #2196F3; /* Bleu pour le crédit / informations */
+            --accent-blue-dark: #1976D2;
+            --accent-grey: #6C757D; /* Gris pour les éléments neutres / profil */
+            --accent-grey-dark: #5A6268;
+            --accent-purple: #8C4CAF; /* Violet pour la discussion / communauté */
+            --accent-purple-dark: #7A3FA3;
+
+            /* Nouvelle couleur pour AG-COIN */
+            --agcoin-color: #007bff; /* Bleu blockchain */
+            --agcoin-dark: #0056b3;
+
+            /* Couleurs de fond */
+            --bg-light: #f4f7f6; /* Arrière-plan général léger */
+            --bg-white: #fff; /* Arrière-plan des blocs de contenu */
+            --text-color: #555; /* Couleur principale du texte */
+            --text-light: #ccc; /* Texte très léger, ex: footer */
+            --text-lighter: #ddd; /* Texte légèrement plus clair, ex: footer links */
+
+            /* Espacements cohérents */
+            --spacing-xxs: 0.2rem; /* 4px */
+            --spacing-xs: 0.5rem;  /* 8px */
+            --spacing-sm: 0.75rem; /* 12px */
+            --spacing-md: 1rem;    /* 16px */
+            --spacing-lg: 1.5rem;  /* 24px */
+            --spacing-xl: 2rem;    /* 32px */
+            --spacing-xxl: 3rem;   /* 48px */
+
+            /* Tailles de police (Fluid Responsive Typography) */
+            --font-size-base: 1rem; /* 16px */
+            --font-size-sm: 0.875rem; /* 14px */
+            --font-size-md: 1rem;     /* 16px */
+            --font-size-lg: 1.25rem;  /* 20px */
+            --font-size-xl: 1.563rem; /* 25px */
+            --font-size-xxl: 2.441rem; /* ~39px */
+            --font-size-xxxl: 3.052rem; /* ~49px */
+
+            /* Rayons de bordure */
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px; /* Standard */
+            --border-radius-lg: 12px;
+            --border-radius-pill: 9999px; /* Pour les boutons arrondis */
+
+            /* Ombres et transitions */
+            --box-shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.08);
+            --box-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --box-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.15);
+            --transition-speed: 0.3s;
+            --transition-ease: ease-in-out;
+            --transition: all var(--transition-speed) var(--transition-ease);
+
+            /* Nouvelle variable pour la hauteur de la barre de navigation du bas */
+            --nav-height-bottom: 70px; /* Ajustez selon la taille réelle de votre barre */
+        }
+
+        /* Styles de base et utilitaires */
+        *, *::before, *::after {
+            box-sizing: border-box; /* Modèle de boîte universel */
+        }
+
+        html {
+            scroll-behavior: smooth; /* Défilement doux */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--secondary-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://i.imgur.com/d53OUqF.jpeg'); /* Image de fond par défaut */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow-x: hidden; /* Empêche le défilement horizontal */
+            padding-bottom: var(--nav-height-bottom); /* Espace pour la barre de navigation du bas */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+            flex-grow: 1; /* Permet au contenu de prendre l'espace disponible */
+        }
+
+        /* Réinitialisation pour les éléments de liste */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Styles pour les titres de section */
+        .section-title {
+            font-size: var(--font-size-xl);
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            font-weight: 700;
+        }
+
+        .section-title i {
+            font-size: var(--font-size-lg); /* Taille adaptée pour les icônes de titre */
+            vertical-align: middle; 
+            line-height: 1; 
+        }
+
+        /* --- En-tête de l'application --- */
+        .app-header {
+            background-color: var(--bg-white);
+            padding: var(--spacing-md);
+            box-shadow: var(--box-shadow-md);
+            top: 0;
+            z-index: 100; /* Assure que l'en-tête reste au-dessus des autres éléments */
+        }
+
+        .app-header-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-md); /* Espace plus grand entre les éléments de l'en-tête */
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 100px; /* Taille du logo ajustée */
+            width: auto;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .logo-text {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        .logo-text i {
+            font-size: 0.9em; /* Ajustement de la taille de l'icône dans le titre du logo */
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        /* --- Barre de navigation fixe en bas --- */
+        .main-nav {
+            background-color: var(--primary-color);
+            padding: var(--spacing-sm) var(--spacing-md);
+            box-shadow: var(--box-shadow-lg); /* Ombre plus prononcée pour la barre du bas */
+            width: 100%;
+            z-index: 1000; /* Assure qu'elle est au-dessus de tout le contenu */
+            position: fixed; /* Fixe en bas */
+            bottom: 0;
+            left: 0;
+            transition: all 0.3s ease-in-out;
+            transform: translateY(0);
+        }
+
+        .main-nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around; /* Espacement uniforme des éléments */
+            align-items: center;
+            gap: var(--spacing-sm); /* Espace réduit entre les éléments sur desktop pour plus de liens */
+            flex-wrap: wrap; /* Permet aux liens de passer à la ligne sur petits écrans */
+        }
+
+        .main-nav a {
+            color: var(--bg-white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: var(--font-size-sm); /* Taille de police plus petite pour optimiser l'espace */
+            padding: var(--spacing-xs) var(--spacing-xxs); /* Padding réduit pour plus de compacité */
+            border-radius: var(--border-radius-sm);
+            transition: background-color var(--transition-speed) var(--transition-ease), transform 0.2s ease;
+            display: flex; /* Pour centrer le texte et l'icône */
+            flex-direction: column; /* Icône au-dessus du texte */
+            align-items: center;
+            gap: var(--spacing-xxs); /* Petit espace entre icône et texte */
+            text-align: center;
+            flex: 1; /* Permet aux éléments de prendre l'espace disponible */
+            min-width: 60px; /* Largeur minimale pour chaque élément de navigation */
+        }
+
+        .main-nav a i {
+            font-size: var(--font-size-lg); /* Icône plus grande pour la visibilité */
+            margin-bottom: var(--spacing-xxs);
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px); /* Effet léger de survol */
+        }
+
+        /* Retiré les styles de fixed-nav pour une navigation en bas */
+        /*body.has-fixed-nav {
+            padding-top: var(--nav-height); 
+        }*/
+
+
+        /* --- Boutons d'action (CTA) --- */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center; /* Centrage du contenu du bouton */
+            gap: var(--spacing-sm);
+            padding: 0.9em 1.8em;
+            border-radius: var(--border-radius-pill); /* Boutons très arrondis */
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            white-space: nowrap;
+            font-size: var(--font-size-sm);
+            box-shadow: var(--box-shadow-sm);
+            border: none; /* Supprime la bordure par default des boutons */
+            cursor: pointer;
+        }
+        .cta-button i {
+            font-size: var(--font-size-md); /* Taille standard pour les icônes de bouton */
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        .cta-button.primary {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+        }
+        .cta-button.primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-md);
+        }
+
+        .cta-button.secondary {
+            background-color: var(--accent-orange);
+            color: var(--secondary-color);
+        }
+        .cta-button.secondary:hover {
+            background-color: var(--accent-orange-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-md);
+        }
+
+        .cta-button.blue {
+            background-color: var(--accent-blue);
+            color: var(--bg-white);
+        }
+        .cta-button.blue:hover {
+            background-color: var(--accent-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-md);
+        }
+
+        .cta-button.profile {
+            background-color: var(--accent-grey);
+            color: var(--bg-white);
+        }
+        .cta-button.profile:hover {
+            background-color: var(--accent-grey-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-md);
+        }
+
+        .cta-button.discussion {
+            background-color: var(--accent-purple);
+            color: var(--bg-white);
+        }
+        .cta-button.discussion:hover {
+            background-color: var(--accent-purple-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-md);
+        }
+
+        .cta-button.download {
+            background-color: var(--bg-white); /* Bouton blanc */
+            color: var(--agcoin-color); /* Texte bleu */
+            box-shadow: var(--box-shadow-sm);
+        }
+        .cta-button.download:hover {
+            background-color: #e0e0e0; /* Légèrement gris au survol */
+            color: var(--agcoin-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-md);
+        }
+
+
+        /* --- Section Hero (Introduction) --- */
+        .hero {
+            padding: var(--spacing-xxl) var(--spacing-md);
+            background-color: var(--bg-white);
+            border-radius: var(--border-radius-md);
+            margin-top: var(--spacing-lg);
+            box-shadow: var(--box-shadow-md);
+            text-align: center; /* Centrage par default du contenu */
+        }
+
+        .hero-inner {
+            display: flex;
+            flex-direction: column; /* Par default en colonne sur mobile */
+            gap: var(--spacing-xl);
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-inner {
+                flex-direction: row; /* En ligne sur les écrans plus grands */
+                text-align: left; /* Texte aligné à gauche quand l'image est à côté */
+            }
+        }
+        @media (min-width: 992px) {
+            .hero-inner {
+                gap: var(--spacing-xxl); /* Plus d'espace sur les très grands écrans */
+            }
+        }
+
+        .hero-content {
+            flex: 1; /* Permet au contenu de prendre l'espace */
+        }
+        @media (min-width: 768px) {
+            .hero-content {
+                text-align: left; /* Aligne le texte à gauche sur les écrans plus grands */
+            }
+        }
+
+        .hero-title {
+            font-size: var(--font-size-xxl);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centré par default */
+            gap: var(--spacing-xs);
+        }
+        @media (min-width: 768px) {
+            .hero-title {
+                justify-content: flex-start; /* Aligne à gauche sur les écrans plus grands */
+            }
+        }
+
+        .hero-title i {
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        .hero-subtitle {
+            font-size: var(--font-size-md);
+            color: var(--text-color);
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centré par default */
+            gap: var(--spacing-xs);
+        }
+        @media (min-width: 768px) {
+            .hero-subtitle {
+                justify-content: flex-start; /* Aligne à gauche sur les écrans plus grands */
+            }
+        }
+
+        .hero-subtitle i {
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centré par default */
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        @media (min-width: 768px) {
+            .hero-actions {
+                justify-content: flex-start; /* Aligne à gauche sur les écrans plus grands */
+            }
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow-md);
+        }
+
+        /* --- Section Fonctionnalités (Features) --- */
+        .features {
+            padding: var(--spacing-xxl) var(--spacing-md);
+            background-color: var(--bg-white);
+            border-radius: var(--border-radius-md);
+            margin-top: var(--spacing-lg);
+            box-shadow: var(--box-shadow-md);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Une colonne sur mobile */
+            gap: var(--spacing-lg);
+        }
+
+        @media (min-width: 768px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur tablette */
+            }
+        }
+
+        @media (min-width: 992px) {
+            .feature-grid {
+                grid-template-columns: repeat(4, 1fr); /* Quatre colonnes sur desktop */
+            }
+        }
+
+        .feature-item {
+            background-color: var(--bg-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            text-align: center;
+            box-shadow: var(--box-shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-md);
+        }
+
+        .feature-item > i { /* Icône principale */
+            font-size: 3.5em; /* Grande icône pour l'impact */
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            vertical-align: middle;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .feature-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-lg); /* Titre de fonctionnalité plus grand */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-xs);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .feature-item h3 i {
+            font-size: 1em; /* Garde la taille de l'icône dans le titre */
+            color: inherit;
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        .feature-item p {
+            color: var(--text-color);
+            font-size: var(--font-size-sm);
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: var(--spacing-md); /* Espace avant le lien "En savoir plus" */
+        }
+
+        .learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            margin-top: auto; /* Pousse le lien vers le bas dans la colonne flex */
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .learn-more:hover {
+            color: var(--primary-dark);
+            transform: translateX(3px);
+        }
+
+        .learn-more i {
+            font-size: var(--font-size-sm);
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        /* --- Section AG-COIN --- */
+        .agcoin-section {
+            padding: var(--spacing-xxl) var(--spacing-md);
+            background-color: var(--agcoin-color); /* Couleur de fond distincte */
+            color: var(--bg-white); /* Texte blanc pour contraste */
+            border-radius: var(--border-radius-md);
+            margin-top: var(--spacing-xl);
+            box-shadow: var(--box-shadow-md);
+            text-align: center;
+        }
+
+        .agcoin-section .section-title {
+            color: var(--bg-white); /* Titre blanc */
+            margin-bottom: var(--spacing-lg);
+        }
+        .agcoin-section .section-title i {
+            color: var(--bg-white);
+        }
+
+        .agcoin-section p {
+            font-size: var(--font-size-md);
+            margin-bottom: var(--spacing-xl);
+            max-width: 800px; /* Limite la largeur du texte pour la lisibilité */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .agcoin-section figure {
+            margin-top: var(--spacing-xl); /* Espace au-dessus de l'image */
+            margin-bottom: var(--spacing-xl); /* Espace en dessous de l'image */
+            display: block; /* S'assure que margin-left/right auto fonctionne */
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 600px; /* Limite la taille de l'image si elle est trop grande */
+        }
+
+        .agcoin-section figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow-md);
+        }
+        
+        /* --- Pied de page --- */
+        .app-footer {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: var(--spacing-xl) var(--spacing-md);
+            text-align: center;
+            font-size: var(--font-size-sm);
+            margin-top: var(--spacing-xl);
+        }
+
+        .app-footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        @media (min-width: 768px) {
+            .app-footer-inner {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-lg);
+        }
+
+        .footer-links a {
+            color: var(--text-lighter);
+            text-decoration: none;
+            transition: color var(--transition);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        .footer-links a i {
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        .footer-links a:hover {
+            color: var(--bg-white);
+        }
+
+        .copyright {
+            margin-top: var(--spacing-md);
+            font-size: var(--font-size-sm);
+            color: var(--text-light);
+        }
+
+        /* --- Accessibilité (Screen Reader Only) --- */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* --- Media Queries pour la réactivité --- */
+
+        /* Petits écrans (smartphones) */
+        @media (max-width: 767px) {
+            body {
+                background-size: contain; /* L'image de fond remplit l'espace sans débordement sur les petits écrans */
+                background-position: top center; /* Image en haut et centrée */
+            }
+            .hero {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+            .hero-title {
+                font-size: var(--font-size-xl);
+            }
+            .hero-subtitle {
+                font-size: var(--font-size-sm);
+            }
+            .cta-button {
+                padding: 0.8em 1.5em;
+                font-size: var(--font-size-sm);
+                width: 100%; /* Boutons pleine largeur sur les petits écrans */
+            }
+            .section-title {
+                font-size: var(--font-size-lg);
+            }
+            .feature-item {
+                padding: var(--spacing-md);
+            }
+            .feature-item > i {
+                font-size: 3em;
+            }
+            .feature-item h3 {
+                font-size: var(--font-size-md);
+            }
+            .app-footer-inner {
+                flex-direction: column;
+            }
+            .footer-links {
+                gap: var(--spacing-md);
+            }
+            .agcoin-section {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+            .agcoin-section p {
+                font-size: var(--font-size-sm);
+            }
+            .main-nav-inner {
+                flex-direction: row; /* La navigation reste en ligne sur mobile pour le bas */
+                justify-content: space-evenly; /* Espacement uniforme */
+                gap: var(--spacing-xs); /* Réduction du gap */
+            }
+            .main-nav a {
+                flex: 1; /* Chaque lien prend l'espace disponible */
+                max-width: 80px; /* Limite la largeur pour éviter un étirement excessif */
+                font-size: 0.75rem; /* Taille de police plus petite pour s'adapter */
+                padding: var(--spacing-xs) var(--spacing-xxs);
+            }
+            .main-nav a i {
+                font-size: var(--font-size-md); /* Taille de l'icône ajustée */
+            }
+        }
+
+        /* Très petits écrans (anciennes générations de smartphones) */
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 80px;
+            }
+            .logo-text {
+                font-size: 1.6em;
+            }
+            .hero-title {
+                font-size: var(--font-size-lg);
+            }
+            .hero-subtitle {
+                font-size: var(--font-size-sm);
+            }
+            .hero-actions {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            .cta-button {
+                font-size: 0.85em;
+            }
+            .feature-item h3 {
+                font-size: var(--font-size-sm);
+            }
+            .feature-item p {
+                font-size: 0.8em;
+            }
+            .app-header-inner {
+                gap: var(--spacing-md);
+            }
+            .copyright {
+                margin-top: var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <div class="container app-header-inner">
+            <a href="index.html" class="logo" aria-label="Accueil du Marché Agricole Atlas Groupe">
+                <img src="https://i.imgur.com/84oPTDj.jpeg" alt="Logo Atlas Marché Agricole" class="logo-img" width="100" height="100">
+                <span class="logo-text"><i class="ri-store-line" aria-hidden="true"></i> ATLAS GROUPE AGRI-MARKET</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="hero-title"><i class="ri-global-line" aria-hidden="true"></i> Connectons l'agriculture de demain</h1>
+                    <p class="hero-subtitle"><i class="ri-map-pin-line" aria-hidden="true"></i> Votre plateforme pour acheter, vendre et développer votre activité agricole au Burkina Faso et au-delà.</p>
+                    <div class="hero-actions" role="group" aria-label="Actions principales">
+                        <a href="achat-intrants.html" class="cta-button primary">
+                            <i class="ri-shopping-cart-line" aria-hidden="true"></i> ACHETER DES INTRANTS
+                        </a>
+                        <a href="vendre-recoltes.html" class="cta-button secondary">
+                            <i class="ri-leaf-line" aria-hidden="true"></i> VENDRE MES RÉCOLTES
+                        </a>
+                        <a href="credit-agricole.html" class="cta-button blue">
+                            <i class="ri-bank-card-line" aria-hidden="true"></i> CRÉDIT AGRICOLE
+                        </a>
+                    </div>
+                </div>
+                <figure class="hero-image">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="https://i.imgur.com/zVSdL9Y.jpeg">
+                        <img src="https://i.imgur.com/zVSdL9Y.jpeg" alt="Vue d'une ferme agricole moderne au Burkina Faso" loading="lazy" width="600" height="400">
+                    </picture>
+                    <figcaption class="sr-only">Une ferme agricole verdoyante avec des champs cultivés et un ciel bleu.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="features" aria-labelledby="features-title">
+            <h2 id="features-title" class="section-title"><i class="ri-lightbulb-line" aria-hidden="true"></i> Pourquoi choisir Atlas Groupe Agri-Market ?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="ri-tractor-line" aria-hidden="true"></i>
+                    <h3><i class="ri-list-check" aria-hidden="true"></i> Large Sélection d'Intrants</h3>
+                    <p>Trouvez tous les intrants nécessaires pour vos cultures et votre élevage, des semences aux engrais en passant par l'équipement.</p>
+                    <a href="achat-intrants.html" class="learn-more">
+                        Explorer les intrants <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                        <span class="sr-only">Voir tous les intrants disponibles à l'achat</span>
+                    </a>
+                </div>
+                <div class="feature-item">
+                    <i class="ri-seedling-line" aria-hidden="true"></i>
+                    <h3><i class="ri-handshake-line" aria-hidden="true"></i> Vendez Facilement Vos Récoltes</h3>
+                    <p>Connectez-vous avec des acheteurs fiables et obtenez le meilleur prix pour vos produits agricoles frais et transformés.</p>
+                    <a href="vendre-recoltes.html" class="learn-more">
+                        Commencer à vendre <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                        <span class="sr-only">En savoir plus sur la vente de vos récoltes</span>
+                    </a>
+                </div>
+                <div class="feature-item">
+                    <i class="ri-bank-line" aria-hidden="true"></i>
+                    <h3><i class="ri-line-chart-line" aria-hidden="true"></i> Solutions de Financement Agricole</h3>
+                    <p>Accédez à des options de crédit et de micro-crédit adaptées à vos besoins spécifiques pour développer votre exploitation.</p>
+                    <a href="credit-agricole.html" class="learn-more">
+                        Découvrir le financement <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                        <span class="sr-only">Explorer les solutions de crédit agricole</span>
+                    </a>
+                </div>
+                <div class="feature-item">
+                    <i class="ri-group-line" aria-hidden="true"></i>
+                    <h3><i class="ri-share-line" aria-hidden="true"></i> Réseau Agricole Local</h3>
+                    <p>Rejoignez une communauté dynamique d'agriculteurs, de fournisseurs et d'experts au Burkina Faso pour échanger et apprendre.</p>
+                    <a href="communaute.html" class="learn-more">
+                        Rejoindre la communauté <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                        <span class="sr-only">Accéder à la communauté des agriculteurs</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="agcoin-section" aria-labelledby="agcoin-title">
+            <h2 id="agcoin-title" class="section-title"><i class="ri-currency-line" aria-hidden="true"></i> Découvrez l'AG-COIN : L'avenir de la finance agricole</h2>
+            <p>
+                AG-COIN est une monnaie numérique décentralisée, basée sur la blockchain Solana, spécifiquement conçue pour transformer l'écosystème agricole en Afrique de l'Ouest. Elle vise à faciliter les transactions directes, transparentes et sécurisées entre agriculteurs, fournisseurs d'intrants, acheteurs de récoltes et investisseurs, en s'appuyant sur la robustesse et l'efficacité de la blockchain Solana. AG-COIN ambitionne d'améliorer l'accès au financement, d'optimiser la chaîne d'approvisionnement et de donner aux acteurs du secteur les moyens de prospérer dans une économie numérique.
+            </p>
+            <figure>
+                <img src="https://i.imgur.com/DmZ9YZT.jpeg" alt="Illustration de l'AG-COIN sur la blockchain Solana" loading="lazy">
+                <figcaption class="sr-only">L'AG-COIN, un jeton numérique sur la blockchain Solana, connectant l'agriculture et la finance.</figcaption>
+            </figure>
+            <a href="whitepaper.html" class="cta-button download">
+                <i class="ri-file-text-line" aria-hidden="true"></i> Lire le Livre Blanc AG-COIN
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        <div class="container app-footer-inner">
+            <nav class="footer-links" aria-label="Liens de pied de page importants">
+                <a href="conditions.html"><i class="ri-file-text-line" aria-hidden="true"></i> Conditions d'utilisation</a>
+                <a href="confidentialite.html"><i class="ri-shield-line" aria-hidden="true"></i> Politique de confidentialité</a>
+                <a href="contact.html"><i class="ri-mail-line" aria-hidden="true"></i> Contactez-nous</a>
+            </nav>
+            <p class="copyright">&copy; 2025 Atlas Groupe International. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <nav class="main-nav" id="mainNav" aria-label="Navigation principale du site">
+        <div class="main-nav-inner">
+            <a href="profil.html"><i class="ri-home-line" aria-hidden="true"></i> Accueil</a>
+            <a href="#features-title"><i class="ri-lightbulb-line" aria-hidden="true"></i> Fonctionnalités</a>
+            <a href="achat-intrants.html"><i class="ri-shopping-cart-line" aria-hidden="true"></i> Intrants</a>
+            <a href="vendre-recoltes.html"><i class="ri-leaf-line" aria-hidden="true"></i> Récoltes</a>
+            <a href="credit-agricole.html"><i class="ri-bank-card-line" aria-hidden="true"></i> Crédit</a>
+            <a href="#agcoin-title"><i class="ri-currency-line" aria-hidden="true"></i> AG-COIN</a>
+            <a href="communaute.html"><i class="ri-group-line" aria-hidden="true"></i> Communauté</a>
+            <a href="contact.html"><i class="ri-mail-line" aria-hidden="true"></i> Contact</a>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Enregistrement du Service Worker pour PWA
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => console.log('Service Worker enregistré avec succès:', registration))
+                    .catch(error => console.error('Échec de l\'enregistrement du Service Worker:', error));
+            }
+
+            // Ajoute une classe au corps si l'application est en mode standalone (PWA installée)
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                document.body.classList.add('pwa-standalone-mode');
+                console.log('PWA est en mode standalone.');
+            }
+
+            // --- Logique de la barre de navigation fixe en bas (simplifiée) ---
+            // La barre de navigation est maintenant fixée en bas via CSS,
+            // donc la logique JavaScript pour le "sticky" n'est plus nécessaire.
+            // On peut la laisser si on veut ajouter des interactions futures,
+            // mais elle n'impacte plus le positionnement fixe.
+        });
+    </script>
+</body>
+</html>
+

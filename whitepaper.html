@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livre Blanc - Atlas Groupe International & AG-COIN</title>
+    <meta name="description" content="Découvrez AG-COIN, le token SPL sur Solana par Atlas Groupe International, transformant l'agriculture en Afrique de l'Ouest.">
+    <meta name="keywords" content="AG-COIN, Atlas Groupe International, Solana, Blockchain, Agriculture, Afrique de l'Ouest, Crypto, Investissement, Thierry Joël Yougma">
+    <meta name="author" content="Atlas Groupe International">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://atlas-groupe-international.b12sites.com">
+    <meta property="og:title" content="Livre Blanc - Atlas Groupe International & AG-COIN">
+    <meta property="og:description" content="La moisson numérique pour l'Afrique de l'Ouest ! Investissez dans l'avenir de l'agriculture avec AG-COIN.">
+    <meta property="og:image" content="https://i.imgur.com/M1q5o2c.jpeg"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://atlas-groupe-international.b12sites.com">
+    <meta property="twitter:title" content="Livre Blanc - Atlas Groupe International & AG-COIN">
+    <meta property="twitter:description" content="La moisson numérique pour l'Afrique de l'Ouest ! Investissez dans l'avenir de l'agriculture avec AG-COIN.">
+    <meta property="twitter:image" content="https://i.imgur.com/M1q5o2c.jpeg"> <link rel="icon" href="https://i.imgur.com/M1q5o2c.jpeg" type="image/jpeg">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <style>
+        /* CSS intégré pour une application autonome */
+
+        /* Variables CSS */
+        :root {
+            --primary-color: #27ae60; /* Vert pour les actions principales */
+            --secondary-color: #3498db; /* Bleu pour les accents */
+            --tertiary-color: #f39c12; /* Orange pour les alertes/secondaires */
+            --dark-text: #333;
+            --light-text: #555;
+            --heading-color: #2c3e50;
+            --footer-bg: #2c3e50;
+            --background-fade: rgba(255, 255, 255, 0.95);
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.2);
+            --border-radius-large: 12px;
+            --border-radius-medium: 8px;
+            --border-radius-small: 5px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding-bottom: 20px;
+            box-sizing: border-box;
+            background-image: url('https://i.imgur.com/d53OUqF.jpeg'); /* Image de fond */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Fixe l'image de fond pour un meilleur effet */
+            min-height: 100vh;
+            color: var(--dark-text);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--background-fade);
+            border-radius: var(--border-radius-large);
+            box-shadow: var(--shadow-medium);
+            width: calc(100% - 40px); /* Ajustement pour éviter les débordements sur petits écrans */
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        header h1 {
+            color: var(--heading-color);
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        header .tagline {
+            color: #777;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        header nav {
+            display: none; /* La barre de navigation est supprimée */
+        }
+
+        header .whitepaper-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: var(--border-radius-medium);
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-left: 20px;
+        }
+
+        header .whitepaper-button:hover {
+            background-color: #1e8449;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #e0f7fa, #c8e6c9);
+            padding: 80px 0;
+            text-align: left;
+        }
+
+        .hero-content {
+            margin-bottom: 40px;
+        }
+
+        .hero h2 {
+            color: #2e7d32;
+            font-size: 3em;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .hero .lead {
+            color: var(--light-text);
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center; /* Centrer les boutons */
+            gap: 15px; /* Espacement entre les boutons */
+            flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur petits écrans */
+        }
+
+        .hero-buttons a {
+            display: inline-block;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: var(--border-radius-medium);
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-buttons .primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .hero-buttons .primary:hover {
+            background-color: #2077b3;
+            transform: translateY(-2px);
+        }
+
+        .hero-buttons .secondary {
+            background-color: var(--tertiary-color);
+            color: white;
+        }
+
+        .hero-buttons .secondary:hover {
+            background-color: #e18b07;
+            transform: translateY(-2px);
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-medium);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            padding: 40px;
+            background-color: #fff;
+            margin-bottom: 25px;
+            border-radius: var(--border-radius-large);
+            box-shadow: var(--shadow-light);
+            text-align: left;
+        }
+
+        .section h2 {
+            text-align: left;
+            margin-bottom: 30px;
+            color: var(--heading-color);
+            font-size: 2.4em;
+            font-weight: 700;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .section h2 i {
+            margin-right: 15px;
+            font-size: 1.1em;
+            color: var(--primary-color);
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        .section h3 i {
+            margin-right: 10px;
+            font-size: 1em;
+            color: var(--secondary-color);
+        }
+
+        .section p {
+            margin-bottom: 1.2em;
+            color: var(--light-text);
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+            color: var(--light-text);
+            line-height: 1.5;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .section ul li::before {
+            content: "\e902"; /* Icône de coche de Remix Icon (ri-check-line) */
+            font-family: 'remixicon' !important;
+            font-size: 1.2em;
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .section p a i {
+            margin-right: 8px;
+            color: var(--secondary-color);
+            font-size: 1.1em;
+        }
+
+        .token h4 {
+            color: var(--secondary-color);
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* Bouton copier l'adresse du token */
+        .copy-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: var(--border-radius-small);
+            cursor: pointer;
+            font-size: 0.85em;
+            margin-left: 8px;
+            transition: background-color 0.3s ease;
+            vertical-align: middle;
+        }
+
+        .copy-button:hover {
+            background-color: #1e8449;
+        }
+
+        .copy-button i {
+            font-size: 1em;
+            margin-right: 3px;
+        }
+
+        .wallet-interaction {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .connect-wallet-button {
+            display: none;
+        }
+
+        #wallet-balance {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #2e7d32;
+            display: none;
+        }
+
+        #wallet-error {
+            color: #c0392b;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: var(--border-radius-medium);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        #contact-form button[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        #contact-form button[type="submit"]:hover {
+            background-color: #1e8449;
+        }
+
+        .success-message {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            color: white;
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.95em;
+            width: 100%;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Style pour la section "Notre Mission en Afrique de l'Ouest" */
+        .mission-points {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .mission-points li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--light-text);
+            font-size: 1.05em;
+        }
+
+        .mission-points li i {
+            margin-right: 15px;
+            font-size: 1.8em;
+            color: #2e7d32;
+            width: 35px;
+            text-align: center;
+        }
+
+        /* Style pour l'alignement horizontal des logos */
+        .logo-container-horizontal {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap; /* Permet aux logos de passer à la ligne */
+            justify-content: flex-start; /* Aligner à gauche */
+        }
+
+        .logo-inline {
+            height: 70px;
+            width: auto;
+            border-radius: var(--border-radius-medium);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 100%; /* S'assure que les images ne débordent pas */
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        a:focus,
+        button:focus {
+            outline: 2px solid var(--secondary-color);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) { /* Pour les tablettes et plus petits */
+            .container {
+                margin: 15px auto;
+                padding: 15px;
+                border-radius: var(--border-radius-medium);
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+
+            .logo-container {
+                margin-bottom: 15px;
+                width: 100%; /* Occupe toute la largeur */
+                justify-content: center; /* Centre le logo et le titre */
+            }
+
+            .logo {
+                height: 80px; /* Logo légèrement plus petit */
+                margin-right: 15px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            header .whitepaper-button {
+                margin-left: 0;
+                margin-top: 15px;
+                width: 100%; /* Bouton pleine largeur */
+                text-align: center;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h2 {
+                font-size: 2.5em;
+            }
+
+            .hero .lead {
+                font-size: 1.2em;
+            }
+
+            .hero-buttons {
+                flex-direction: column; /* Boutons en colonne */
+                gap: 10px;
+            }
+
+            .hero-buttons a {
+                width: 90%; /* Presque pleine largeur */
+                margin: 0 auto;
+            }
+
+            .section {
+                padding: 30px;
+                margin-bottom: 20px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+                flex-direction: column; /* L'icône peut passer au-dessus du texte */
+                align-items: flex-start;
+            }
+            .section h2 i {
+                margin-right: 0;
+                margin-bottom: 10px; /* Espace sous l'icône si elle est au-dessus */
+                font-size: 1.3em;
+            }
+
+            .section h3 {
+                font-size: 1.6em;
+            }
+            .section h3 i {
+                font-size: 1.1em;
+            }
+
+            .section p {
+                font-size: 1em;
+            }
+
+            .section ul li {
+                font-size: 1em;
+            }
+
+            .logo-container-horizontal {
+                gap: 15px;
+                justify-content: center; /* Centre les logos sur tablette */
+            }
+        }
+
+        @media (max-width: 768px) { /* Pour les smartphones */
+            .container {
+                margin: 10px auto;
+                padding: 10px;
+                border-radius: var(--border-radius-medium);
+            }
+
+            header {
+                padding: 10px;
+                flex-direction: column;
+                align-items: center; /* Centrer les éléments dans le header */
+            }
+
+            .logo-container {
+                margin-bottom: 10px;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .logo {
+                height: 70px;
+                margin-right: 10px;
+            }
+
+            header h1 {
+                font-size: 1.6em;
+                text-align: center;
+                width: 100%;
+            }
+
+            header .whitepaper-button {
+                font-size: 1em;
+                padding: 10px 15px;
+                width: calc(100% - 20px); /* Ajustement pour padding */
+            }
+
+            .hero {
+                padding: 30px 0;
+            }
+
+            .hero h2 {
+                font-size: 1.8em;
+                margin-bottom: 15px;
+            }
+
+            .hero .lead {
+                font-size: 1em;
+                margin-bottom: 25px;
+            }
+
+            .hero-buttons a {
+                padding: 12px 0;
+                font-size: 1em;
+                width: 100%;
+            }
+
+            .section {
+                padding: 20px;
+                margin-bottom: 15px;
+            }
+
+            .section h2 {
+                font-size: 1.6em;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+                text-align: center; /* Centrer les titres de section */
+                display: block; /* Supprime le flex pour le titre */
+            }
+            .section h2 i {
+                display: block; /* Force l'icône sur une nouvelle ligne */
+                margin: 0 auto 10px auto; /* Centre l'icône au-dessus du texte */
+                font-size: 1.5em;
+            }
+
+            .section h3 {
+                font-size: 1.3em;
+                margin-top: 15px;
+                margin-bottom: 10px;
+                flex-direction: column; /* Icône au-dessus du sous-titre */
+                align-items: flex-start;
+            }
+            .section h3 i {
+                margin-right: 0;
+                margin-bottom: 5px;
+                font-size: 1.1em;
+            }
+
+            .section p, .section ul li {
+                font-size: 0.95em;
+                line-height: 1.5;
+            }
+
+            .section ul li::before {
+                font-size: 1em;
+                top: 0px;
+            }
+
+            .copy-button {
+                padding: 4px 8px;
+                font-size: 0.8em;
+            }
+
+            .logo-container-horizontal {
+                flex-direction: column;
+                align-items: center; /* Centre les logos sur mobile */
+                gap: 10px;
+            }
+
+            .logo-inline {
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="https://i.imgur.com/M1q5o2c.jpeg" alt="Logo Livre Blanc AG-COIN" class="logo">
+                <h1>Livre Blanc</h1>
+            </div>
+            <a href="https://drive.google.com/file/d/1dRo6DWTZrF1z-nGvWj6izFN2QDHJwVr7/view?usp=drivesdk" class="whitepaper-button header-whitepaper-button">Télécharger le Livre Blanc (PDF)</a>
+        </header>
+
+        <section class="section">
+            <h2>Atlas Groupe Coin - La Moisson Numérique pour l'Afrique de l'Ouest!</h2>
+            <p><strong>Atlas Groupe International</strong><br>
+            Bp : 131 Koupéla, Burkina Faso<br>
+            <a href="mailto:atlasgroupeinternational@gmail.com" target="_blank">atlasgroupeinternational@gmail.com</a></p>
+            <p><a href="https://t.me/AtlasGroupeFinance_Bot" target="_blank"><i class="ri-telegram-fill"></i> TELEGRAM</a></p>
+            <p><a href="https://chat.whatsapp.com/DR21RjbTWFM6YSZQges1G0" target="_blank"><i class="ri-whatsapp-fill"></i> WHATSAPP</a></p>
+        </section>
+
+        <section id="abstract" class="section">
+            <h2><i class="ri-article-line"></i> Abstract</h2>
+            <p>AG-COIN est une monnaie numérique décentralisée, basée sur la blockchain Solana, spécifiquement conçue pour transformer l'écosystème agricole en Afrique de l'Ouest. Elle vise à faciliter les transactions directes, transparentes et sécurisées entre agriculteurs, fournisseurs d'intrants, acheteurs de récoltes et investisseurs, en s'appuyant sur la robustesse et l'efficacité de la blockchain Solana. AG-COIN ambitionne d'améliorer l'accès au financement, d'optimiser la chaîne d'approvisionnement et de donner aux acteurs du secteur les moyens de prospérer dans une économie numérique.</p>
+        </section>
+
+        <section id="introduction" class="section">
+             <h2><i class="ri-plant-line"></i> Introduction : Notre Vision d'une Agriculture Connectée en Afrique de l'Ouest</h2>
+            <p>Chez Atlas Groupe International, notre conviction est forte : la technologie blockchain, et en particulier une monnaie numérique décentralisée comme AG-COIN, est un catalyseur puissant pour moderniser l'agriculture en Afrique de l'Ouest. Inspirés par les principes fondamentaux de transparence et d'efficacité des monnaies numériques décentralisées, nous introduisons AG-COIN, un token SPL sur la blockchain Solana, spécifiquement conçu pour soutenir et moderniser les pratiques agricoles, optimiser la chaîne d'approvisionnement et donner aux agriculteurs de notre région les moyens de prospérer. Notre vision est claire : bâtir un écosystème où l'innovation blockchain et la croissance agricole durable s'unissent pour un avenir meilleur pour nos communautés. Nous invitons les investisseurs visionnaires à se joindre à nous dans cette mission cruciale.</p>
+        </section>
+
+        <section id="qu-est-ce-que-agcoin" class="section">
+            <h2><i class="ri-coins-line"></i> Qu'est-ce qu'AG-COIN ?</h2>
+            <p>AG-COIN est le <span class="highlight">token utilitaire SPL (Solana Program Library)</span> au cœur de l'écosystème ATLAS GROUPE INTERNATIONAL. Il a été créé pour faciliter les échanges de valeur entre <span class="highlight">agriculteurs, fournisseurs d'intrants, acheteurs de récoltes et investisseurs</span>. En tirant parti de la rapidité, de la sécurité et de la faible empreinte carbone de la blockchain Solana, AG permet des transactions équitables et entièrement traçables. Cette transparence renforce la confiance et l'efficacité au sein de notre secteur agricole, créant ainsi un environnement propice à l'investissement et à la croissance durable.</p>
+        </section>
+
+        <section id="le-defi-et-notre-solution" class="section">
+            <h2><i class="ri-arrow-right-circle-line"></i> Le Défi et Notre Solution</h2>
+            <h3><i class="ri-close-circle-line"></i> Le Défi</h3>
+            <p>L'agriculture en Afrique de l'Ouest fait face à des obstacles majeurs : un <span class="highlight">accès limité au financement</span>, des chaînes d'approvisionnement souvent <span class="highlight">fragmentées et coûteuses</span>, un manque de clarté dans la fixation des prix et des difficultés pour les petits exploitants d'accéder à des marchés équitables. Ces défis entravent le potentiel de croissance et la prospérité de nos agriculteurs, limitant par conséquent les opportunités d'investissement dans ce secteur vital.</p>
+            <h3><i class="ri-check-circle-line"></i> Notre Solution</h3>
+            <p>ATLAS GROUPE INTERNATIONAL propose une plateforme décentralisée et innovante pour surmonter ces défis. Notre token AG-COIN permet des <span class="highlight">transactions rapides et sécurisées</span>, ouvre la voie à des solutions de <span class="highlight">micro-financement et d'assurance décentralisées</span> via des partenariats stratégiques, améliore la <span class="highlight">traçabilité des produits</span> de la ferme à la table, et crée de nouvelles opportunités de <span class="highlight">vente directe</span> pour nos agriculteurs, leur assurant une part plus juste de la valeur de leur travail. Cette approche novatrice crée un écosystème plus efficace et transparent, offrant un potentiel de rendement attractif pour les investisseurs.</p>
+        </section>
+
+        <section id="fonctionnalites-et-utilisations" class="section">
+            <h2><i class="ri-function-line"></i> Fonctionnalités et Utilisations d'Atlas Groupe Coin (AG-COIN)</h2>
+            <ul>
+                <li><span class="highlight">Facilitation des Transactions Agricoles :</span> AG-COIN sera utilisé pour l'achat de biens essentiels comme les semences, les engrais et l'équipement agricole, ainsi que pour la vente des récoltes au sein de notre écosystème. Cela réduit les frictions et les coûts de transaction, augmentant l'efficacité pour les agriculteurs et la transparence pour les investisseurs.</li>
+                <li><span class="highlight">Accès au Micro-Financement Décentralisé :</span> Nous mettrons en place des partenariats avec des protocoles DeFi établis, tels qu'Aave, qui opère également sur la blockchain Solana. Cela pourrait permettre aux agriculteurs d'accéder à des prêts en utilisant leurs AG-COIN comme garantie, une fois que la liquidité et la confiance dans le token seront établies. De même, les investisseurs pourraient avoir la possibilité de prêter des actifs numériques via ces protocoles et de gagner des intérêts, contribuant ainsi à la liquidité de l'écosystème AG-COIN et soutenant indirectement le financement agricole. L'intégration avec des plateformes comme Aave ouvre des perspectives pour des solutions de financement innovantes et accessibles aux acteurs du secteur agricole en Afrique de l'Ouest.</li>
+                <li><span class="highlight">Traçabilité et Garantie d'Origine :</span> Chaque étape du cycle de vie des produits agricoles pourra être enregistrée de manière sécurisée sur la blockchain, offrant aux consommateurs une visibilité totale sur l'origine, les pratiques agricoles et la qualité des aliments qu'ils achètent. Cette transparence renforce la confiance des consommateurs et peut créer des primes pour les produits tracés, augmentant la valeur pour les agriculteurs et potentiellement les investisseurs.</li>
+                <li><span class="highlight">Programme de Récompenses et d'Incitations :</span> Nous récompenserons les agriculteurs qui adoptent des pratiques agricoles durables, atteignent des objectifs de production spécifiques ou participent activement à la communauté AG-COIN avec des tokens AG. Ce programme encourage l'adoption et la durabilité, créant une base solide pour la croissance à long terme de l'écosystème.</li>
+                <li><span class="highlight">Gouvernance Communautaire Progressive :</span> À terme, nous souhaitons impliquer notre communauté, y compris les détenteurs d'AG-COIN, dans les décisions importantes concernant l'évolution de la plateforme AG-COIN, en leur donnant un droit de vote sur les orientations futures et l'allocation de ressources pour des projets agricoles. Cela favorise un sentiment d'appartenance et une prise de décision plus éclairée, alignant les intérêts de la communauté et des investisseurs.</li>
+            </ul>
+        </section>
+
+        <section id="fonctionnement-technique" class="section">
+            <h2><i class="ri-settings-4-line"></i> Fonctionnement Technique d'AG-COIN sur Solana</h2>
+            <p>AG-COIN est un <span class="highlight">token SPL (Solana Program Library)</span>, ce qui signifie qu'il est créé et géré selon les standards de tokens de la blockchain Solana. Son fonctionnement s'appuie sur les <span class="highlight">smart contracts de Solana</span>, qui définissent les règles de création, de transfert et d'utilisation du token. La performance élevée de Solana permet des transactions AG-COIN rapides et à faible coût, essentielles pour les volumes potentiels au sein de l'écosystème agricole.</p>
+        </section>
+
+        <section id="consensus" class="section">
+            <h2><i class="ri-hand-coin-line"></i> Consensus : Sécurisation des Transactions AG-COIN via Solana</h2>
+            <p>AG-COIN s'appuie sur le mécanisme de consensus haute performance de Solana, combinant la <span class="highlight">Preuve d'Historique (PoH)</span> et la <span class="highlight">Preuve de Participation Déléguée (DPoS)</span>, pour sécuriser et valider toutes les transactions au sein de son écosystème. Ce consensus distribué assure l'intégrité et la sécurité des échanges de valeur en AG-COIN.</p>
+        </section>
+
+        <section id="horodatage-et-tracabilite" class="section">
+            <h2><i class="ri-fingerprint-line"></i> Horodatage et Traçabilité des Produits Agricoles</h2>
+            <p>Grâce à la blockchain Solana, chaque étape du cycle de vie des produits agricoles peut être horodatée et enregistrée de manière sécurisée. Cela permet d'établir une <span class="highlight">traçabilité complète, de la ferme à la table</span>, offrant aux consommateurs une visibilité totale sur l'origine, les pratiques agricoles et la qualité des aliments qu'ils achètent. L'horodatage via la blockchain Solana garantit l'intégrité et la vérifiabilité de ces informations.</p>
+        </section>
+
+        <section id="le-reseau-agcoin" class="section">
+            <h2><i class="ri-global-line"></i> Le Réseau AG-COIN sur Solana</h2>
+            <p>AG-COIN fonctionne sur le <span class="highlight">réseau décentralisé et rapide de la blockchain Solana</span>. Les agriculteurs, les fournisseurs, les acheteurs et les investisseurs interagissent directement avec ce réseau via des portefeuilles compatibles Solana pour effectuer des transactions en AG-COIN. La robustesse et la performance de Solana sont essentielles pour soutenir les besoins de l'écosystème agricole.</p>
+        </section>
+
+        <section id="preuve-simplifiee-de-paiement" class="section">
+            <h2><i class="ri-wallet-line"></i> Preuve Simplifiée de Paiement pour l'Agriculture</h2>
+            <p>Les acteurs de l'écosystème AG-COIN pourront bénéficier de <span class="highlight">portefeuilles légers compatibles Solana</span> pour vérifier les transactions AG-COIN sans avoir à télécharger l'intégralité de la blockchain, facilitant ainsi l'adoption sur des appareils mobiles.</p>
+        </section>
+
+        <section id="transparence-et-confidentialite" class="section">
+            <h2><i class="ri-eye-line"></i> Transparence et Confidentialité dans les Transactions Agricoles</h2>
+            <p>Toutes les transactions AG-COIN sont enregistrées de manière <span class="highlight">transparente sur la blockchain Solana</span>. Bien que les identités ne soient pas directement liées aux adresses, la transparence renforce la confiance. Les utilisateurs peuvent adopter des pratiques pour améliorer leur confidentialité.</p>
+        </section>
+
+        <section id="incitations-au-sein-de-l-ecosysteme" class="section">
+            <h2><i class="ri-award-line"></i> Incitations au sein de l'Écosystème</h2>
+            <p>L'écosystème AG-COIN est conçu avec plusieurs fonctionnalités et incitations pour encourager son adoption et son utilisation :</p>
+            <ul>
+                <li>Facilitation des Transactions Agricoles : AG-COIN sera utilisé pour l'achat d'intrants et la vente de récoltes.</li>
+                <li>Accès au Micro-Financement Décentralisé : Des partenariats DeFi sur Solana pourront offrir des opportunités de financement aux agriculteurs.</li>
+                <li>Traçabilité et Garantie d'Origine : La blockchain assure la traçabilité des produits.</li>
+                <li>Programme de Récompenses et d'Incitations : Les pratiques durables et la participation communautaire seront récompensées en AG-COIN.</li>
+                <li>Gouvernance Communautaire Progressive : À terme, les détenteurs d'AG-COIN pourront participer aux décisions importantes.</li>
+            </ul>
+        </section>
+
+        <section id="tokenomics" class="section">
+            <h2><i class="ri-currency-line"></i> Tokenomics d'Atlas Groupe Coin (AG-COIN)</h2>
+            <ul>
+                <li><strong>Nom du Token :</strong> Atlas Groupe Coin</li>
+                <li><strong>Symbole :</strong> AG-COIN</li>
+                <li><strong>Décimal :</strong> 9</li>
+                <li><strong>Adresse du Token :</strong> <span class="highlight token-address" data-address="74Fs11K6HVfWAZFCsUT72ffAugcRksTtHqW4XgmeuUx4">74Fs11K6HVf...</span> <button class="copy-button" aria-label="Copier l'adresse du token"><i class="ri-file-copy-line"></i></button></li>
+                <li><strong>Réseau :</strong> Blockchain Solana (SPL Token)</li>
+                <li><strong>Offre Totale :</strong> <span class="highlight">10.000.000.000 AG-COIN</span></li>
+            </ul>
+
+            <h3><i class="ri-image-line"></i> Logos</h3>
+            <p><strong>Logos de l'entreprise :</strong><br>
+                <div class="logo-container-horizontal">
+                    <img src="https://i.imgur.com/mhvxbEh.jpeg" alt="Logo Atlas Groupe International" class="logo-inline">
+                    <img src="https://i.imgur.com/6YRySSd.jpeg" alt="Logo Atlas Groupe International" class="logo-inline">
+                </div>
+                <strong>Logos du Token :</strong><br>
+                <div class="logo-container-horizontal">
+                    <img src="https://i.imgur.com/lQVDmN1.jpeg" alt="Logo Atlas Groupe Coin" class="logo-inline">
+                    <img src="https://i.imgur.com/iye9rrj.jpeg" alt="Logo Atlas Groupe Coin" class="logo-inline">
+                </div>
+            </p>
+
+            <h3><i class="ri-flow-chart-line"></i> Distribution</h3>
+            <ul>
+                <li><strong>(20%) : Vente Publique et Privée</strong>
+                    <ul>
+                        <li><strong>Vente Privée :</strong> Cette phase initiale ciblera les investisseurs stratégiques et les fonds ayant une vision à long terme pour l'agriculture africaine et la technologie blockchain. Les tickets d'entrée minimums seront de <span class="highlight">[Définir le montant]</span>, avec des bonus potentiels de <span class="highlight">[Définir le pourcentage]</span> pour les participants de la première heure. Les tokens acquis lors de la vente privée seront soumis à une période de blocage de <span class="highlight">[Définir la durée]</span> pour assurer l'alignement des intérêts avec le succès à long terme du projet. Les fonds levés lors de cette phase seront principalement utilisés pour le développement initial de la plateforme et l'établissement de partenariats clés.</li>
+                        <li><strong>Vente Publique :</strong> La vente publique sera ouverte à une plus large communauté d'investisseurs via des plateformes de lancement réputées <span class="highlight">[Mentionner les plateformes envisagées]</span>. Des limites d'achat par participant de <span class="highlight">[Définir le montant]</span> seront mises en place pour favoriser une distribution équitable. Le calendrier précis de la vente publique sera annoncé ultérieurement. Les fonds récoltés lors de cette phase seront alloués à l'expansion de la plateforme, aux initiatives de marketing et d'adoption par les agriculteurs.</li>
+                        <li><strong>Utilisation des Fonds de la Vente :</strong>
+                            <ul>
+                                <li>Développement de la plateforme : 20%</li>
+                                <li>Marketing et adoption : 40%</li>
+                                <li>Partenariats : 40%</li>
+                            </ul>
+                        </li>
+                        <li>Stratégie de Liquidité Post-Lancement : Nous sommes en discussion avec plusieurs plateformes d'échange décentralisées (DEX) et centralisées (CEX) pour assurer une liquidité adéquate pour AG-COIN après son lancement. Des partenariats avec des market makers seront également envisagés pour stabiliser le prix et faciliter les échanges.</li>
+                    </ul>
+                </li>
+                <li><strong>(10%) : Fonds de Développement Agricole et Subventions Directes aux Agriculteurs.</strong>
+                    <ul>
+                        <li>Mécanismes d'Allocation des Fonds : Ces fonds seront gérés par un comité dédié, comprenant des experts agricoles et des représentants de la communauté AG-COIN. Les agriculteurs pourront soumettre des demandes de subventions pour des projets visant à améliorer leurs pratiques agricoles, acquérir de nouveaux équipements ou adopter des technologies durables. Les critères de sélection incluront le potentiel d'impact, la durabilité et l'engagement communautaire. Un système de vote communautaire pourrait également être mis en place pour certaines initiatives.</li>
+                        <li>Impact Mesurable : L'impact de ces fonds sera suivi à travers des indicateurs clés tels que l'augmentation des rendements, l'adoption de pratiques durables et l'amélioration des revenus des agriculteurs bénéficiaires. Des rapports d'impact réguliers seront partagés avec la communauté et les investisseurs. Des exemples concrets de projets financés seront mis en avant.</li>
+                    </ul>
+                </li>
+                <li><strong>(15%) : Équipe et Conseillers (avec une période de blocage pour assurer l'engagement à long terme).</strong>
+                    <ul>
+                        <li>Les tokens alloués à l'équipe et aux conseillers seront soumis à une période de blocage de <span class="highlight">[Définir la durée]</span> avec un déblocage progressif sur <span class="highlight">[Définir la période]</span>. Cela garantit l'engagement à long terme de l'équipe dans le succès du projet.</li>
+                    </ul>
+                </li>
+                <li><strong>(20%) : Partenariats Stratégiques et Intégrations avec des acteurs clés du secteur.</strong>
+                    <ul>
+                        <li>Cette allocation permettra d'établir des collaborations avec des coopératives agricoles, des fournisseurs d'intrants, des entreprises de logistique, des institutions financières et d'autres acteurs clés de l'écosystème agricole en Afrique de l'Ouest. Ces partenariats sont essentiels pour l'adoption et l'intégration d'AG-COIN dans les flux de travail existants.</li>
+                    </ul>
+                </li>
+                <li><strong>(25%) : Programme de Récompenses pour les Agriculteurs et Staking (si applicable)</strong>
+                    <ul>
+                        <li>Programme de Récompenses : Les agriculteurs seront récompensés en AG-COIN pour l'adoption de pratiques agricoles durables (par exemple, l'agriculture biologique, l'agroforesterie), l'atteinte d'objectifs de production spécifiques, la participation à des formations et leur engagement au sein de la communauté AG-COIN.</li>
+                        <li>Mécanismes de Staking (si applicable) : Les détenteurs d'AG-COIN auront potentiellement la possibilité de staker leurs tokens pour sécuriser le réseau et gagner des récompenses passives. Les taux de rendement potentiels et les périodes de blocage seront détaillés ultérieurement. Le Staking encouragera la détention à long terme et réduira la volatilité.</li>
+                    </ul>
+                </li>
+                <li><strong>(10%) : Trésorerie pour le Développement Futur et les Initiatives Communautaires</strong>
+                    <ul>
+                        <li>Cette trésorerie sera utilisée pour financer de futurs développements de la plateforme, des initiatives communautaires, des programmes d'éducation et d'adoption, et pour faire face à des imprévus. La gestion de cette trésorerie sera transparente et potentiellement soumise à des votes communautaires à terme.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="notre-feuille-de-route" class="section">
+            <h2><i class="ri-road-map-line"></i> Notre Feuille de Route</h2>
+            <ul>
+                <li><strong>Phase 1 : Fondation et Lancement (Mois 1-3)</strong>
+                    <ul>
+                        <li>Lancement officiel du token AG-COIN sur la blockchain Solana.</li>
+                        <li>Développement et déploiement de la plateforme de base pour faciliter les transactions agricoles initiales (achat d'intrants, vente de récoltes).</li>
+                        <li>Établissement de partenariats clés avec les 5 premières coopératives et organisations agricoles pilotes au Burkina Faso.</li>
+                        <li>KPIs : Nombre de partenaires agricoles établis (5), volume de transactions initial sur la plateforme (X AG-COIN), nombre d'utilisateurs actifs (Y agriculteurs).</li>
+                    </ul>
+                </li>
+                <li><strong>Phase 2 : Intégration Financière et Traçabilité (Mois 4-9)</strong>
+                    <ul>
+                        <li>Intégration de solutions de micro-financement décentralisé (DeFi) via des partenariats avec Aave.</li>
+                        <li>Mise en place d'un système pilote de traçabilité pour une filière agricole spécifique (par exemple, le Coton, le Maïs, le cacao), permettant aux consommateurs de suivre l'origine des produits via un QR code.</li>
+                        <li>Lancement d'un programme pilote de récompenses pour les agriculteurs adoptant des pratiques durables.</li>
+                        <li>KPIs : Nombre d'agriculteurs ayant accédé au micro-financement (Z), nombre de produits tracés avec succès (W tonnes), nombre d'agriculteurs participant au programme de récompenses (V).</li>
+                    </ul>
+                </li>
+                <li><strong>Phase 3 : Expansion Régionale et Analyse de Données (Mois 10-18)</strong>
+                    <ul>
+                        <li>Expansion de la plateforme AG-COIN à d'autres régions d'Afrique de l'Ouest (par exemple, la Côte d'Ivoire, le Mali).</li>
+                        <li>Développement d'outils d'analyse de données agricoles pour aider les agriculteurs à prendre des décisions éclairées (prévisions météorologiques, optimisation des rendements, informations sur les prix du marché).</li>
+                        <li>Mise en place progressive d'un système de gouvernance communautaire avec des votes sur des propositions clés.</li>
+                        <li>KPIs : Nombre de nouvelles régions couvertes (2), taux d'adoption des outils d'analyse de données (U%), nombre de votes communautaires actifs (T).</li>
+                    </ul>
+                </li>
+                <li><strong>Phase 4 : Adoption à Grande Échelle et Services Avancés (Mois 19-36)</strong>
+                    <ul>
+                        <li>Intégration avec des marchés nationaux et potentiellement internationaux pour faciliter la vente des récoltes.</li>
+                        <li>Développement de solutions d'assurance agricole décentralisées pour protéger les revenus des agriculteurs contre les aléas climatiques et autres risques (partenariats avec des plateformes d'assurance DeFi).</li>
+                        <li>Atteinte d'une adoption significative par plus de <span class="highlight">[Définir le nombre]</span> d'agriculteurs et <span class="highlight">[Définir le nombre]</span> d'acteurs de la chaîne d'approvisionnement à travers l'Afrique de l'Ouest.</li>
+                        <li>KPIs : Volume de transactions sur les marchés nationaux et internationaux (S AG-COIN), nombre d'agriculteurs bénéficiant de l'assurance décentralisée (R), nombre total d'utilisateurs actifs de la plateforme (Q).</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="opportunites-d-investissement" class="section">
+            <h2><i class="ri-hand-heart-line"></i> Opportunités d'Investissement et Stratégies de Rendement</h2>
+            <h3>Pourquoi Investir dans AG-COIN ?</h3>
+            <ul>
+                <li><span class="highlight">Potentiel de Croissance du Marché :</span> Le secteur agricole en Afrique de l'Ouest représente un marché en croissance considérable, avec un besoin urgent de modernisation et d'amélioration de l'efficacité. La technologie blockchain offre des solutions uniques pour répondre à ces besoins, créant un environnement propice à l'investissement. Les projections indiquent une croissance annuelle du secteur agricole de <span class="highlight">[Citer des statistiques]</span>. AG-COIN se positionne au cœur de cette transformation numérique.</li>
+                <li><span class="highlight">Proposition de Valeur Unique :</span> AG-COIN offre une solution holistique aux défis de l'agriculture régionale, combinant des transactions efficaces, un accès au financement, une traçabilité accrue et des incitations pour des pratiques durables. Cette proposition de valeur unique nous distingue des initiatives isolées et crée un écosystème auto-entretenu.</li>
+                 <li><span class="highlight">Impact Social et Environnemental :</span> Investir dans AG-COIN, c'est contribuer directement à l'amélioration des conditions de vie des agriculteurs en Afrique de l'Ouest, à la promotion de pratiques agricoles durables et à la création d'une chaîne d'approvisionnement plus transparente et équitable. Cet impact social et environnemental positif renforce la durabilité à long terme du projet.</li>
+                <li><span class="highlight">Adoption Précoce :</span> AG-COIN offre une opportunité d'investissement précoce dans un projet avec un fort potentiel de croissance au sein d'un marché en pleine expansion. Les premiers investisseurs peuvent bénéficier d'une appréciation significative du capital à mesure que l'adoption s'étend.</li>
+            </ul>
+            <h3>Stratégies de Rendement Potentielles pour les Investisseurs :</h3>
+            <ul>
+                <li><span class="highlight">Appréciation du Capital :</span> L'adoption croissante d'AG-COIN au sein de l'écosystème agricole et son intégration dans les flux commerciaux devraient entraîner une augmentation de la demande et, par conséquent, de la valeur du token. Le succès de nos partenariats et l'expansion régionale catalyseront cette appréciation.</li>
+                <li><span class="highlight">Revenus Passifs via le Staking (si applicable) :</span> La possibilité de Staker des AG-COIN offrira aux investisseurs une opportunité de générer des revenus passifs en contribuant à la sécurité et à la stabilité du réseau. Les taux de rendement seront compétitifs et inciteront à la détention à long terme.</li>
+                <li><span class="highlight">Participation à la Gouvernance et Récompenses :</span> Les détenteurs d'AG-COIN pourraient avoir des opportunités de recevoir des récompenses pour leur participation active à la gouvernance du projet, alignant leurs intérêts sur le succès de l'écosystème.</li>
+                <li><span class="highlight">Potentiel de Partenariats et d'Intégrations :</span> Les partenariats stratégiques et les intégrations avec des acteurs établis du secteur agricole et financier créeront de nouvelles sources de valeur pour les détenteurs d'AG-COIN, renforçant son utilité et son adoption.</li>
+            </ul>
+        </section>
+
+        <section id="comment-investir" class="section">
+            <h2><i class="ri-funds-line"></i> Comment Investir dans AG-COIN</h2>
+            <p>Nous sommes ravis de l'intérêt que vous portez à l'investissement dans AG-COIN. Voici les étapes générales pour participer à notre projet :</p>
+            <ol>
+                <li><strong>Restez Informé :</strong> Suivez nos canaux de communication officiels (site web, réseaux sociaux, Telegram) pour obtenir les dernières informations concernant les dates de vente privée et publique, les conditions de participation et les mises à jour du projet.</li>
+                <li><strong>Vente Privée (si applicable) :</strong> Si vous êtes un investisseur stratégique intéressé par la vente privée, veuillez contacter notre équipe à <a href="mailto:[Adresse e-mail pour les investisseurs privés]" class="highlight">[Adresse e-mail pour les investisseurs privés]</a> pour discuter des modalités et de votre participation. Des vérifications KYC (Know Your Customer) et AML (Anti-Money Laundering) pourront être requises.</li>
+                <li><strong>Vente Publique :</strong> Pour participer à la vente publique, vous devrez généralement vous inscrire sur la plateforme de lancement que nous annoncerons. Assurez-vous de créer un compte et de suivre les instructions pour la vérification KYC/AML si nécessaire.</li>
+                <li><strong>Préparation de Votre Portefeuille Solana :</strong> AG-COIN est un token SPL sur la blockchain Solana. Vous aurez besoin d'un portefeuille compatible Solana (par exemple, Phantom, Solflare) pour recevoir et gérer vos tokens AG-COIN. Assurez-vous d'avoir configuré votre portefeuille et de disposer de SOL (la cryptomonnaie native de Solana) pour couvrir les frais de transaction.</li>
+                <li><strong>Participation à la Vente :</strong> Le jour de la vente publique, suivez les instructions sur la plateforme de lancement pour acheter des AG-COIN en utilisant la cryptomonnaie acceptée (généralement SOL ou USDC). Respectez les limites d'achat fixées.</li>
+                <li><strong>Réception des Tokens :</strong> Une fois la vente terminée, les tokens AG-COIN achetés seront distribués à l'adresse de votre portefeuille Solana que vous aurez fournie lors de l'inscription sur la plateforme de lancement.</li>
+                <li><strong>Suivi et Engagement :</strong> Après avoir acquis des AG-COIN, restez informé des développements du projet, participez à la communauté et envisagez de staker vos tokens (si cette fonctionnalité est disponible) pour potentiellement générer des revenus passifs et participer à la gouvernance future.</li>
+            </ol>
+            <p><strong>Important :</strong> Nous vous recommandons vivement de faire vos propres recherches (DYOR - Do Your Own Research) et de consulter un conseiller financier avant de prendre toute décision d'investissement. La participation à la vente de tokens comporte des risques.</p>
+        </section>
+
+        <section id="notre-equipe" class="section">
+            <h2><i class="ri-group-line"></i> Notre Équipe</h2>
+            <ul>
+                <li><strong>Thierry Joel YOUGMA</strong><br>
+                Visionnaire et Ancré dans le Terrain<br>
+                À la tête d'Atlas Groupe International et véritable moteur du déploiement d'AG-COIN, Thierry Joel incarne la passion et l'expertise au service de l'agriculture. Son parcours d'agronome, enrichi par son expérience en tant qu'agent technique coton à la SOFITEX, lui confère une compréhension profonde des réalités du terrain. En tant que Président Fondateur, il insuffle à AG-COIN sa vision novatrice pour transformer l'agriculture en Afrique de l'Ouest. Sa double casquette de leader et d'agronome est un atout majeur pour le succès de ce projet ambitieux. Son leadership éclairé et sa connaissance approfondie du secteur agricole sont essentiels pour naviguer dans les complexités du marché et assurer l'adoption d'AG-COIN par les communautés locales.</li>
+                <li><strong>Damou DAMA</strong><br>
+                Passionné d'éducation financière et doté d'une connaissance approfondie des cryptomonnaies, ce spécialiste accompagne ses clients dans l'univers de l'investissement numérique. Son expertise en finance décentralisée offre aux investisseurs les connaissances et les outils nécessaires pour prendre des décisions éclairées et maximiser leurs rendements. Sa capacité à vulgariser les concepts complexes de la blockchain et de la DeFi est un atout précieux pour attirer et éduquer les investisseurs potentiels. Son rôle est crucial pour établir la crédibilité d'AG-COIN auprès de la communauté crypto et financière.</li>
+                <li><strong>[Nom du Conseiller Agricole]</strong><br>
+                Fort de [Nombre] années d'expérience dans l'agriculture durable en Afrique de l'Ouest, [Nom] apporte une expertise précieuse en matière de pratiques agricoles optimales et de collaboration avec les communautés locales.</li>
+                <li><strong>[Nom du Développeur Blockchain]</strong><br>
+                Expert en développement sur la blockchain Solana avec une solide expérience dans la création de dApps performantes et sécurisées. Son expertise technique est essentielle pour le développement et la maintenance de la plateforme AG-COIN.</li>
+                <li><strong>[Nom du Responsable Marketing et Communication]</strong><br>
+                 Possède une expérience significative dans le marketing digital et la communication pour les projets blockchain. Sa mission est de faire connaître AG-COIN auprès des agriculteurs, des investisseurs et du grand public.</li>
+            </ul>
+        </section>
+
+        <section id="risques-et-attenuations" class="section">
+            <h2><i class="ri-alarm-warning-line"></i> Risques et Atténuations</h2>
+            <h3>Évaluation des Risques :</h3>
+            <p>L'investissement dans les cryptomonnaies et les projets blockchain comporte des risques inhérents. Nous reconnaissons les risques potentiels suivants :</p>
+            <ul>
+                <li>Volatilité du Marché des Cryptomonnaies : Le prix des cryptomonnaies peut être très volatile et est influencé par des facteurs externes tels que les sentiments du marché, les réglementations et les événements macroéconomiques.</li>
+                <li>Risques Réglementaires : Le paysage réglementaire des cryptomonnaies évolue rapidement et peut varier considérablement d'une juridiction à l'autre, ce qui pourrait impacter l'adoption et l'utilisation d'AG-COIN.</li>
+                <li>Risques Technologiques et de Sécurité : Bien que la blockchain Solana soit réputée pour sa sécurité, il existe toujours des risques liés aux vulnérabilités des smart contracts, aux attaques de piratage et aux erreurs techniques.</li>
+                <li>Risques d'Adoption par les Utilisateurs : L'adoption d'AG-COIN par les agriculteurs et les autres acteurs de la chaîne d'approvisionnement dépendra de leur familiarisation avec la technologie et de la perception de sa valeur ajoutée. Des barrières culturelles et d'accès à la technologie peuvent également exister.</li>
+                <li>Risques de Concurrence : D'autres projets blockchain et initiatives technologiques pourraient émerger dans le secteur agricole africain.</li>
+                <li>Risques liés aux Partenariats : Le succès du projet dépendra en partie de la réussite et de la pérennité des partenariats stratégiques établis.</li>
+                <li>Risques Macroéconomiques et Politiques : Les conditions économiques et politiques en Afrique de l'Ouest peuvent avoir un impact sur le projet.</li>
+            </ul>
+            <h3>Stratégies d'Atténuation :</h3>
+            <p>Pour minimiser ces risques, nous mettrons en œuvre les stratégies suivantes :</p>
+            <ul>
+                <li>Gestion Prudente de la Trésorerie : Nous adopterons une approche prudente dans la gestion de notre trésorerie pour faire face à la volatilité du marché. Une diversification des actifs de la trésorerie pourrait être envisagée.</li>
+                <li>Veille Réglementaire Active : Nous suivrons de près les développements réglementaires et nous nous efforcerons de nous conformer aux lois et réglementations applicables. Nous engagerons des conseillers juridiques pour nous assurer de notre conformité.</li>
+                <li>Audits de Sécurité Rigoureux : Des audits de sécurité réguliers de nos smart contracts et de notre plateforme seront effectués par des entreprises tierces réputées. Nous prévoyons également des tests d'intrusion réguliers.</li>
+                <li>Stratégies d'Engagement Communautaire et d'Éducation : Nous investirons dans des programmes d'éducation et de sensibilisation pour faciliter l'adoption d'AG-COIN par les agriculteurs et les autres utilisateurs. Des partenariats avec des organisations agricoles locales, des leaders communautaires et des institutions éducatives seront essentiels. Nous prévois des formations en personne et des supports pédagogiques adaptés.</li>
+                <li>Innovation Continue et Partenariats Stratégiques : Nous nous engageons à innover continuellement et à établir des partenariats stratégiques solides et diversifiés pour renforcer notre écosystème et maintenir notre avantage concurrentiel. Une évaluation rigoureuse des partenaires potentiels sera effectuée.</li>
+                <li>Approche Progressive et Adaptative : Nous adopterons une approche progressive dans le déploiement de la plateforme, en tirant les leçons des phases pilotes et en adaptant notre stratégie en fonction des retours du marché et des utilisateurs.</li>
+                <li>Diversification Géographique : Notre stratégie d'expansion régionale vise à diversifier notre base d'utilisateurs et à réduire notre exposition aux risques spécifiques à un seul pays.</li>
+            </ul>
+        </section>
+
+        <section id="conclusion" class="section">
+            <h2><i class="ri-seed-line"></i> Conclusion : Ensemble, Investissons dans l'Avenir de l'Agriculture en Afrique de l'Ouest avec Atlas Groupe International et son Token SPL AG-COIN.</h2>
+            <p>AG-COIN représente bien plus qu'un simple token ; c'est une opportunité d'investir directement dans la transformation du paysage agricole en Afrique de l'Ouest. En soutenant AG-COIN, vous devenez un acteur essentiel dans la création d'un écosystème plus juste, transparent, efficace et prospère pour nos agriculteurs et nos communautés. Votre investissement alimentera l'innovation, favorisera l'adoption de technologies durables et contribuera à améliorer les moyens de subsistance de millions de personnes. Ensemble, semons les graines d'un avenir agricole florissant, alimenté par la blockchain et la collaboration. Nous vous invitons à vous joindre à notre mission et à faire partie de cette révolution agricole numérique. Nous sommes convaincus qu'avec votre soutien, AG-COIN deviendra un catalyseur majeur pour une croissance économique et sociale durable en Afrique de l'Ouest.</p>
+        </section>
+
+        <section class="section">
+            <h2><i class="ri-error-warning-line"></i> Clause de non-responsabilité :</h2>
+            <p>Ce livre blanc est fourni à titre informatif uniquement et ne constitue pas un conseil financier, une offre d'investissement ou une sollicitation d'achat de tokens AG. L'investissement dans les cryptomonnaies et les projets blockchain comporte des risques importants, y compris le risque de perte totale de votre investissement. Il est impératif de mener vos propres recherches approfondies et de consulter un conseiller financier professionnel avant de prendre toute décision d'investissement.</p>
+            <p>"Veuillez noter que les informations présentées dans ce livre blanc sont actuelles à la date de sa publication. Cependant, la nature évolutive du paysage des cryptomonnaies, les avancées technologiques et les décisions stratégiques peuvent nécessiter des mises à jour et des révisions à l'avenir. Par conséquent, les lecteurs doivent comprendre que le contenu de ce document est susceptible d'être modifié, et la version la plus récente sera toujours la source d'information définitive."</p>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Atlas Groupe International. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // JavaScript intégré pour une application autonome
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Livre Blanc AG-COIN chargé. Thierry Joël Yougma, Président Fondateur de Atlas Groupe International.');
+
+            // Fonctionnalité de copie d'adresse du token
+            const copyButton = document.querySelector('.copy-button');
+            const tokenAddressSpan = document.querySelector('.token-address');
+
+            if (copyButton && tokenAddressSpan) {
+                copyButton.addEventListener('click', () => {
+                    const addressToCopy = tokenAddressSpan.dataset.address; // Utilise data-address pour la propreté
+
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(addressToCopy)
+                            .then(() => {
+                                console.log('Adresse copiée :', addressToCopy);
+                                const originalText = copyButton.innerHTML;
+                                copyButton.innerHTML = '<i class="ri-check-line"></i> Copié !'; // Icône de coche
+                                setTimeout(() => {
+                                    copyButton.innerHTML = originalText;
+                                }, 2000); // Réinitialiser le texte après 2 secondes
+                            })
+                            .catch(err => {
+                                console.error('Erreur lors de la copie :', err);
+                                alert('Échec de la copie de l\'adresse. Veuillez copier manuellement : ' + addressToCopy);
+                            });
+                    } else {
+                        // Fallback pour les navigateurs plus anciens
+                        const textArea = document.createElement('textarea');
+                        textArea.value = addressToCopy;
+                        textArea.style.position = 'fixed'; // Évite le défilement
+                        textArea.style.left = '-9999px';
+                        document.body.appendChild(textArea);
+                        textArea.focus();
+                        textArea.select();
+                        try {
+                            document.execCommand('copy');
+                            console.log('Adresse copiée (fallback) :', addressToCopy);
+                            const originalText = copyButton.innerHTML;
+                            copyButton.innerHTML = '<i class="ri-check-line"></i> Copié !';
+                            setTimeout(() => {
+                                copyButton.innerHTML = originalText;
+                            }, 2000);
+                        } catch (err) {
+                            console.error('Échec de la copie (fallback) :', err);
+                            alert('Échec de la copie de l\'adresse. Veuillez copier manuellement : ' + addressToCopy);
+                        }
+                        document.body.removeChild(textArea);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

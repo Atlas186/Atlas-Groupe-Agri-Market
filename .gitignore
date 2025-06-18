@@ -1,0 +1,46 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Fichier : ~/Atlas-Groupe-Agri-Market/.gitignore
+
+# --- Pour le dossier public/backend ---
+public/backend/node_modules/
+public/backend/.env
+public/backend/.env.development
+public/backend/.env.production
+public/backend/npm-debug.log*
+
+# --- Pour le dossier public/ (frontend) ---
+public/node_modules/
+public/dist/ # Le dossier de build de Vite
+public/.env
+public/.env.development
+public/.env.production
+public/npm-debug.log*
+
+# --- Fichiers système et IDE ---
+.DS_Store
+.vscode/ # Ou tout autre dossier de votre IDE si vous ne voulez pas le versionner
+*.log

@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue sur Atlas Groupe AGRI-MARKET</title>
+    <meta name="description" content="Votre portail pour l'agriculture au Burkina Faso. Accédez au marché, aux intrants, aux récoltes et au financement avec Atlas Groupe AGRI-MARKET.">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Variables CSS pour une maintenance facile */
+        :root {
+            --primary-color: #4CAF50; /* Vert Agriculture */
+            --secondary-color: #333; /* Texte foncé */
+            --text-color: #555; /* Texte secondaire */
+            --light-text-color: #555;
+            --bg-light: #f4f7f6; /* Arrière-plan léger */
+            --bg-white: #fff; /* Arrière-plan blanc */
+            --dark-overlay: rgba(0, 0, 0, 0.75); /* Incrustation plus sombre */
+            --dark-footer-bg: rgba(0, 0, 0, 0.9); /* Arrière-plan de pied de page plus opaque */
+
+            /* Espacements cohérents */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
+            --spacing-xxxl: 4rem;
+
+            /* Tailles de police responsives */
+            --font-size-xs: 0.75rem; /* 12px */
+            --font-size-sm: 0.875rem; /* 14px */
+            --font-size-md: 1rem;     /* 16px */
+            --font-size-lg: 1.25rem;  /* 20px */
+            --font-size-xl: 1.5rem;   /* 24px */
+            --font-size-xxl: 2.0em;   /* ~32px */
+            --font-size-xxxl: 2.5em;  /* ~40px */
+            --font-size-3xl: 2.5em;
+
+            /* Autres propriétés réutilisables */
+            --border-radius: 12px; /* Rayon de bordure plus doux pour les conteneurs */
+            --border-radius-sm: 6px;
+            --border-radius-md: 10px;
+            --border-radius-lg: 25px;
+            --button-radius: 30px;
+            --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.15);
+            --box-shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.25);
+            --box-shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.08);
+            --box-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s ease-in-out;
+            --border-color: #e0e0e0;
+        }
+
+        /* Réinitialisation de base pour une cohérence cross-navigateur */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://i.imgur.com/d53OUqF.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 100px; /* Espace pour les boutons fixes en haut */
+            padding-bottom: 70px; /* Espace pour le pied de page */
+            color: var(--bg-white);
+            text-align: center;
+            position: relative;
+            overflow-x: hidden; /* Prévient les barres de défilement horizontales non désirées */
+            line-height: 1.6;
+        }
+
+        /* Appliquer Poppins pour les sections de contenu pour une meilleure lisibilité */
+        .section-title, .section-content, .token h4, .token ul, .contact-form, footer {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Conteneur principal de la page */
+        .main-content-wrapper {
+            background-color: var(--dark-overlay);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-xxl) var(--spacing-xl);
+            box-shadow: var(--box-shadow-medium);
+            max-width: 95%;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .logo-container {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+
+        /* Styles de l'en-tête principal */
+        .welcome-message {
+            color: #eee;
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 500;
+        }
+
+        h1 {
+            color: var(--bg-white);
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        h1 i {
+            font-size: 0.9em;
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        .slogan {
+            color: #ccc;
+            margin-top: var(--spacing-xs);
+            margin-bottom: var(--spacing-xl);
+            font-size: var(--font-size-lg);
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .small-spacer {
+            height: var(--spacing-md);
+            width: 100%;
+        }
+
+        .content-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--box-shadow-light);
+        }
+
+        /* Groupe de boutons fixes en haut de page */
+        .fixed-button-group {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-white);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: var(--spacing-sm) var(--spacing-md);
+            z-index: 101;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-md);
+            border-bottom-left-radius: var(--border-radius-md);
+            border-bottom-right-radius: var(--border-radius-md);
+            flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur petits écrans */
+        }
+
+        .action-button {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border: none;
+            border-radius: var(--button-radius);
+            cursor: pointer;
+            font-size: var(--font-size-md);
+            text-decoration: none;
+            transition: background-color var(--transition-speed), transform 0.2s ease-in-out, box-shadow var(--transition-speed);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            font-weight: 700;
+            text-align: center;
+            white-space: nowrap; /* Empêche le texte de se casser sur plusieurs lignes */
+        }
+
+        .action-button:hover,
+        .action-button:focus {
+            background-color: #388E3C;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+        }
+
+        .action-button i {
+            font-size: 1.1em;
+        }
+
+        /* Pied de page de l'application */
+        .app-footer {
+            width: 100%;
+            background-color: var(--dark-footer-bg);
+            color: #ddd;
+            text-align: center;
+            padding: var(--spacing-sm) 0;
+            font-size: var(--font-size-sm);
+            margin-top: auto;
+            position: relative;
+            z-index: 99;
+        }
+
+        .app-footer-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--spacing-sm) var(--spacing-md);
+        }
+
+        .app-footer .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 var(--spacing-xs);
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .app-footer .footer-links a {
+            color: #eee;
+            text-decoration: none;
+            transition: color var(--transition-speed);
+            font-size: var(--font-size-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .app-footer .footer-links a:hover {
+            color: var(--bg-white);
+        }
+
+        .app-footer p {
+            margin: 0;
+            font-size: var(--font-size-xs);
+            color: #bbb;
+        }
+
+        /* Accessibilité pour les lecteurs d'écran */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Sections de contenu génériques */
+        .about, .token, .vision, .contact, .mission {
+            padding: var(--spacing-xxl) 0;
+            background-color: var(--bg-white);
+            margin-bottom: var(--spacing-xl);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow-md);
+            color: var(--text-color);
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            color: var(--primary-color);
+            font-size: var(--font-size-xxl);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        .section-title i {
+            color: var(--primary-color);
+            font-size: 1.1em;
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        .section-content {
+            padding: 0 var(--spacing-lg);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow-sm);
+            margin-bottom: var(--spacing-xl);
+            margin-top: var(--spacing-sm);
+        }
+
+        .section-content p {
+            margin-bottom: var(--spacing-md);
+            color: var(--light-text-color);
+            font-size: var(--font-size-md);
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        /* Styles spécifiques à la section AG-COIN */
+        .token h4 {
+            color: var(--primary-color);
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .token ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .token ul li {
+            margin-bottom: var(--spacing-sm);
+            color: var(--light-text-color);
+            font-size: var(--font-size-md);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+        }
+
+        .token ul li i {
+            color: var(--primary-color);
+            font-size: 1.1em;
+            vertical-align: middle;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 0.2em;
+        }
+
+        .token p i {
+            margin-right: var(--spacing-xs);
+            color: var(--light-text-color);
+        }
+
+        .copy-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            margin-left: var(--spacing-sm);
+            transition: background-color var(--transition-speed) ease, transform 0.1s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .copy-button:hover {
+            background-color: #388E3C;
+            transform: translateY(-1px);
+        }
+
+        /* Formulaire de contact */
+        .contact-form {
+            max-width: 500px;
+            margin: var(--spacing-xl) auto 0 auto;
+            padding: var(--spacing-lg);
+            background-color: var(--bg-light);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow-sm);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: var(--font-size-md);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            box-sizing: border-box;
+            font-size: var(--font-size-md);
+            background-color: var(--bg-white);
+            color: var(--text-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        #contact-form button[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            cursor: pointer;
+            font-size: var(--font-size-md);
+            font-weight: 600;
+            transition: background-color var(--transition-speed) ease, transform 0.1s ease;
+            box-shadow: var(--box-shadow-sm);
+        }
+
+        #contact-form button[type="submit"]:hover {
+            background-color: #388E3C;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .success-message {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: var(--spacing-md);
+            text-align: center;
+            font-size: var(--font-size-md);
+        }
+
+        /* Section Mission */
+        .mission-points {
+            list-style: none;
+            padding: 0;
+            margin-top: var(--spacing-lg);
+            text-align: left;
+        }
+
+        .mission-points li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-md);
+            color: var(--light-text-color);
+            font-size: var(--font-size-sm);
+            gap: var(--spacing-md);
+        }
+
+        .mission-points li i {
+            font-size: var(--font-size-md);
+            color: var(--primary-color);
+            flex-shrink: 0;
+            margin-top: 0.1em;
+        }
+
+        /* Media Queries pour la responsivité */
+        @media (min-width: 768px) {
+            .main-content-wrapper {
+                max-width: 85%;
+                padding: var(--spacing-xxl) var(--spacing-xxl);
+            }
+
+            .logo {
+                max-width: 180px;
+            }
+
+            .welcome-message {
+                font-size: var(--font-size-xl);
+            }
+
+            h1 {
+                font-size: var(--font-size-xxl);
+            }
+
+            .slogan {
+                font-size: var(--font-size-xl);
+            }
+
+            .fixed-button-group {
+                gap: var(--spacing-xl);
+                padding: var(--spacing-md) var(--spacing-xxl);
+                flex-wrap: nowrap;
+            }
+
+            .action-button {
+                padding: var(--spacing-md) var(--spacing-lg);
+                font-size: var(--font-size-md);
+                flex: 1;
+                max-width: 300px;
+            }
+
+            .app-footer-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: var(--spacing-xl);
+            }
+
+            .app-footer .footer-links {
+                margin-bottom: 0;
+            }
+
+            .section-title {
+                font-size: var(--font-size-3xl);
+            }
+            .section-content p {
+                font-size: var(--font-size-md);
+            }
+            .token h4 {
+                font-size: var(--font-size-xl);
+            }
+            .token ul li {
+                font-size: var(--font-size-md);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .main-content-wrapper {
+                max-width: 70%;
+            }
+            .logo {
+                max-width: 200px;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .main-content-wrapper {
+                max-width: 60%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content-wrapper {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+            .logo {
+                max-width: 120px;
+            }
+            h1 {
+                font-size: var(--font-size-lg);
+            }
+            .slogan {
+                font-size: var(--font-size-sm);
+            }
+            .fixed-button-group {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                padding: var(--spacing-sm);
+            }
+            .action-button {
+                font-size: var(--font-size-sm);
+                padding: var(--spacing-sm) var(--spacing-md);
+                width: 90%;
+            }
+            .section-title {
+                font-size: var(--font-size-xl);
+            }
+            .section-content p, .token ul li, .contact-form label, .contact-form input, .contact-form textarea {
+                font-size: var(--font-size-sm);
+            }
+            .contact-form button {
+                font-size: var(--font-size-sm);
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body class="homepage">
+
+    <div class="fixed-button-group">
+        <a href="connect.html" id="connectButton" class="action-button">
+            <i class="ri-shopping-cart-line" aria-hidden="true"></i> Accédez à Votre AGRI-MARKET
+        </a>
+        <a href="registre.html" id="registerButton" class="action-button">
+            <i class="ri-user-add-line" aria-hidden="true"></i> Créez Votre Compte AGRI-MARKET
+        </a>
+        <a href="whitepaper.html" id="whitepaperButton" class="action-button">
+            <i class="ri-book-2-line" aria-hidden="true"></i> LIVRE BLANC
+        </a>
+    </div>
+
+    <main class="main-content-wrapper" aria-labelledby="page-title">
+        <div class="logo-container">
+            <a href="index.html" aria-label="Retour à la page d'accueil d'Atlas Groupe AGRI-MARKET">
+                <img src="https://i.imgur.com/6YRySSd.jpeg" alt="Logo Atlas Groupe International - AGRI-MARKET" class="logo">
+            </a>
+        </div>
+        <p class="welcome-message">Bienvenue dans</p>
+        <h1 id="page-title">
+            <i class="ri-seedling-line" aria-hidden="true"></i> ATLAS GROUPE AGRI-MARKET<br>
+        </h1>
+        <p class="slogan">
+            Votre portail pour l'agriculture au Burkina Faso.<br>
+            Connectez-vous au marché agricole, aux intrants agricoles, aux récoltes et au financement de vos activités agricoles au Burkina Faso et partout en Afrique.
+        </p>
+
+        <div class="small-spacer"></div>
+
+        <img src="https://i.imgur.com/84oPTDj.jpeg" alt="Représentation d'une agriculture prospère au Burkina Faso" class="content-image">
+
+        ---
+
+        <section id="apropos" class="about">
+            <div class="container">
+                <h3 class="section-title">
+                    <i class="fas fa-building"></i> À Propos d'Atlas Groupe International
+                </h3>
+                <div class="section-content">
+                    <img src="https://i.imgur.com/dLD66wF.jpeg" alt="À Propos d'Atlas Groupe International">
+                    <p>Atlas Groupe International est une organisation visionnaire, engagée à transformer le paysage agricole au Burkina Faso et en Afrique de l'Ouest grâce à l'intégration stratégique de la technologie blockchain. Notre passion pour l'innovation et notre détermination à construire un écosystème numérique transparent et efficace sont au cœur de notre mission.</p>
+                    <p>Notre engagement profond est de catalyser la croissance et de générer une valeur durable pour notre communauté florissante et nos précieux partenaires.</p>
+                    <p>ATLAS GROUPE INTERNATIONAL présente une plateforme décentralisée et avant-gardiste, spécialement conçue pour relever les défis complexes du secteur agricole. Notre token AG-COIN est le moteur de transactions rapides et sécurisées, ouvrant la voie à des solutions de micro-financement et d'assurance décentralisées grâce à des alliances stratégiques judicieuses. Nous optimisons la traçabilité des produits, de la ferme à la table, et créons de nouvelles avenues de vente directe pour nos agriculteurs dévoués, leur assurant une part équitable de la richesse qu'ils contribuent.</p>
+                    <p>Chez Atlas Groupe International, notre conviction est inébranlable : la technologie blockchain est un puissant levier de transformation pour l'agriculture en Afrique de l'Ouest. Nous sommes résolus à la rendre plus efficace, transparente et accessible à chaque acteur de la chaîne de valeur. C'est dans cet esprit que nous avons créé AG-COIN, un token SPL sur la blockchain Solana, spécifiquement adapté pour soutenir et moderniser les pratiques agricoles, rationaliser la chaîne d'approvisionnement et autonomiser les agriculteurs de notre région pour qu'ils prospèrent. Notre vision est claire : ériger un écosystème où l'innovation blockchain et la croissance agricole durable convergent pour un avenir radieux pour nos communautés.</p>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="agcoin" class="token">
+            <div class="container">
+                <h3 class="section-title">
+                    <i class="fas fa-coins"></i> Atlas Groupe Coin (AG-COIN)
+                </h3>
+                <div class="section-content">
+                    <img src="https://i.imgur.com/VKSOwlJ.jpeg" alt="Atlas Groupe Coin (AG-COIN)">
+                    <p>AG-COIN est le pilier de notre écosystème, un token utilitaire SPL (Solana Program Library) conçu pour fluidifier les échanges de valeur entre les acteurs clés du secteur agricole : agriculteurs, fournisseurs, acheteurs et investisseurs. S'appuyant sur la rapidité, la sécurité et l'éco-responsabilité de la blockchain Solana, AG-COIN garantit des transactions équitables et une traçabilité sans faille, renforçant ainsi la confiance et l'efficacité au sein de notre communauté agricole.</p>
+                    <h4>Fonctionnalités et Utilisations d'Atlas Groupe Coin (AG-COIN)</h4>
+                    <ul>
+                        <li><i class="fas fa-exchange-alt"></i> **Facilitation des Transactions Agricoles :** AG-COIN simplifie l'achat d'intrants essentiels et la vente des récoltes au sein de notre réseau.</li>
+                        <li><i class="fas fa-hand-holding-usd"></i> **Accès au Micro-Financement Décentralisé :** Des partenariats stratégiques avec des protocoles DeFi ouvrent des opportunités de financement innovantes pour nos agriculteurs.</li>
+                        <li><i class="fas fa-map-marker-alt"></i> **Traçabilité et Garantie d'Origine :** Chaque étape du cycle de vie des produits est enregistrée sur la blockchain, offrant une transparence totale aux consommateurs.</li>
+                        <li><i class="fas fa-gift"></i> **Programme de Récompenses et d'Incitations :** Nous valorisons les pratiques durables et l'engagement communautaire avec des récompenses en AG-COIN.</li>
+                        <li><i class="fas fa-users"></i> **Gouvernance Communautaire Progressive :** À terme, les détenteurs d'AG-COIN auront un rôle actif dans les décisions clés de la plateforme.</li>
+                    </ul>
+                    <h4>Tokenomics d'Atlas Groupe Coin (AG-COIN)</h4>
+                    <p><i class="fas fa-tag"></i> Nom du Token : Atlas Groupe Coin</p>
+                    <p><i class="fas fa-ticket-alt"></i> Symbole : AG-COIN</p>
+                    <p><i class="fas fa-hashtag"></i> Décimal : 9</p>
+                    <p><i class="fas fa-network-wired"></i> Réseau : Blockchain Solana</p>
+                    <p><i class="fas fa-infinity"></i> Offre Totale : <span id="total-supply">10.000.000.000</span> AG-COIN</p>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="vision" class="vision">
+            <div class="container">
+                <h3 class="section-title">
+                    <i class="fas fa-eye"></i> Notre Vision
+                </h3>
+                <div class="section-content">
+                    <img src="https://i.imgur.com/PQ5SpOw.jpeg" alt="Notre Vision">
+                    <p>Notre vision chez Atlas Groupe International est de forger un avenir où l'agriculture au Burkina Faso et en Afrique de l'Ouest est synonyme de durabilité, d'efficacité et d'équité. Nous aspirons à un écosystème agricole transformé par la puissance de la blockchain, où chaque agriculteur est connecté, valorisé et prospère. AG-COIN est la clé de voûte de cette transformation, un catalyseur pour une croissance économique partagée et une sécurité alimentaire renforcée dans la région.</p>
+                    <p>Nous envisageons une Afrique de l'Ouest où la technologie blockchain démocratise l'accès aux ressources, aux marchés et aux opportunités financières pour les communautés agricoles. Notre objectif est de construire un réseau résilient et transparent, capable de surmonter les défis traditionnels du secteur et d'ouvrir de nouvelles perspectives pour les générations futures.</p>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="mission" class="mission">
+            <div class="container">
+                <h3 class="section-title">
+                    <i class="fas fa-tasks"></i> Notre Mission en Afrique de l'Ouest
+                </h3>
+                <div class="section-content">
+                    <img src="https://i.imgur.com/pGmfxm3.jpeg" alt="Notre Mission en Afrique de l'Ouest">
+                    <p>La mission d'Atlas Groupe International est d'impulser une révolution agricole en Afrique de l'Ouest en exploitant le potentiel de la technologie blockchain et de notre token utilitaire AG-COIN. Nous nous engageons à :</p>
+                    <ul class="mission-points">
+                        <li><i class="fas fa-seedling"></i> Soutenir les pratiques agricoles durables et intelligentes face au climat.</li>
+                        <li><i class="fas fa-link"></i> Connecter les agriculteurs aux marchés locaux et internationaux de manière directe et équitable.</li>
+                        <li><i class="fas fa-coins"></i> Faciliter l'accès à des solutions de micro-financement et d'assurance décentralisées via AG-COIN.</li>
+                        <li><i class="fas fa-chart-line"></i> Optimiser la chaîne d'approvisionnement agricole pour une efficacité et une transparence maximales.</li>
+                        <li><i class="fas fa-graduation-cap"></i> Fournir des ressources éducatives et des outils technologiques pour l'autonomisation des agriculteurs.</li>
+                        <li><i class="fas fa-handshake"></i> Établir des partenariats stratégiques pour étendre notre impact et notre portée.</li>
+                    </ul>
+                    <p>À travers ces actions, nous visons à améliorer les revenus des agriculteurs, à garantir la sécurité alimentaire et à promouvoir un développement économique durable dans toute la région.</p>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h3 class="section-title">
+                    <i class="fas fa-envelope"></i> Contactez-Nous
+                </h3>
+                <div class="section-content">
+                    <img src="https://i.imgur.com/EcuABHe.jpeg" alt="Contactez-Nous">
+                    <p>Vous avez des questions, des suggestions ou souhaitez en savoir plus sur Atlas Groupe International et AG-COIN ? N'hésitez pas à nous contacter via le formulaire ci-dessous.</p>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nom :</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email :</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message :</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit">Envoyer le Message</button>
+                    </form>
+                    <div id="success-message" class="success-message" style="display:none;">Votre message a été envoyé avec succès !</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <div class="app-footer-inner">
+            <nav aria-label="Liens de navigation du pied de page">
+                <ul class="footer-links">
+                    <li><a href="conditions.html"><i class="ri-file-text-line" aria-hidden="true"></i> Conditions d'utilisation</a></li>
+                    <li><a href="confidentialite.html"><i class="ri-shield-line" aria-hidden="true"></i> Politique de confidentialité</a></li>
+                    <li><a href="contact.html"><i class="ri-mail-line" aria-hidden="true"></i> Contactez-nous</a></li>
+                </ul>
+            </nav>
+            <p>&copy; 2025 Atlas Groupe International, AGRI-MARKET & AG-COIN. Burkina Faso, Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const connectButton = document.getElementById('connectButton');
+            const registerButton = document.getElementById('registerButton');
+            const whitepaperButton = document.getElementById('whitepaperButton');
+            const copyButton = document.querySelector('.copy-button');
+            const contactForm = document.getElementById('contact-form');
+            const successMessage = document.getElementById('success-message');
+
+            // Gère les clics sur les boutons d'action du menu fixe
+            [connectButton, registerButton, whitepaperButton].forEach(button => {
+                if (button) {
+                    button.addEventListener('click', (event) => {
+                        console.log(`Bouton "${button.textContent.trim()}" cliqué.`);
+                        // Ajoutez ici votre logique de redirection ou d'intégration d'API si nécessaire
+                    });
+                } else {
+                    console.warn(`Un bouton avec l'ID spécifié n'a pas été trouvé. Vérifiez l'ID.`);
+                }
+            });
+
+            // Enregistre le Service Worker pour une Progressive Web App (PWA)
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker enregistré avec succès:', registration);
+                    })
+                    .catch(error => {
+                        console.error('Échec de l\'enregistrement du Service Worker:', error);
+                    });
+            }
+
+            // Ajoute une classe au corps si l'application est exécutée en mode autonome (PWA installée)
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                document.body.classList.add('pwa-standalone-mode');
+            }
+
+            // Permet de copier l'adresse du token AG-COIN dans le presse-papiers
+            if (copyButton) {
+                copyButton.addEventListener('click', () => {
+                    const addressSpan = document.getElementById('agcoin-address');
+                    if (addressSpan) {
+                        const address = addressSpan.textContent;
+                        navigator.clipboard.writeText(address)
+                            .then(() => {
+                                alert('Adresse copiée dans le presse-papiers !');
+                                console.log('Adresse copiée:', address);
+                            })
+                            .catch(err => {
+                                console.error('Erreur lors de la copie de l\'adresse:', err);
+                                alert('Impossible de copier l\'adresse.');
+                            });
+                    }
+                });
+            }
+
+            // Gère la soumission du formulaire de contact
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Empêche le rechargement de la page par défaut
+                    console.log('Formulaire soumis!');
+
+                    // --- Intégration future avec une API backend ---
+                    // Dans une application réelle, vous enverriez les données du formulaire à un serveur.
+                    // Exemple d'utilisation de l'API Fetch (décommenter et adapter pour un usage réel) :
+                    /*
+                    const formData = new FormData(this);
+                    fetch('/api/contact', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            successMessage.style.display = 'block';
+                            this.reset(); // Réinitialise le formulaire
+                            setTimeout(() => {
+                                successMessage.style.display = 'none';
+                            }, 3000); // Cache le message après 3 secondes
+                        } else {
+                            alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erreur réseau ou serveur:', error);
+                        alert('Une erreur est survenue lors de l\'envoi.');
+                    });
+                    */
+                    // --- Fin de l'intégration future ---
+
+                    // Simulation de succès pour la démonstration actuelle
+                    if (successMessage) {
+                        successMessage.style.display = 'block';
+                        this.reset();
+                        setTimeout(() => {
+                            successMessage.style.display = 'none';
+                        }, 3000);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,644 @@
+/* Variables CSS pour les couleurs et thèmes AG-COIN */
+:root {
+    --agi-primary-color: #007bff; /* Bleu Atlas Groupe International */
+    --agi-secondary-color: #28a745; /* Vert Atlas Groupe International */
+    --agi-text-color: #333;
+    --agi-bg-color: #E8F5E9; /* Vert très clair */
+    --agi-card-bg-color: #fff;
+    --agi-border-color: #dee2e6;
+    --agi-link-color: #007bff; /* Bleu pour les icônes et liens */
+    --agi-link-hover-color: #0056b3;
+    --agi-button-primary-bg: var(--agi-primary-color);
+    --agi-button-primary-text: #fff;
+    --agi-button-primary-hover-bg: #0056b3;
+    --agi-button-secondary-bg: var(--agi-secondary-color);
+    --agi-button-secondary-text: #fff;
+    --agi-button-secondary-hover-bg: #1e7e34;
+    /* Variables pour le thème Telegram (si pertinent) */
+    --tg-theme-text-color: var(--agi-text-color);
+    --tg-theme-secondary-bg-color: rgba(255, 255, 255, 0.8);
+    --tg-theme-link-color: var(--agi-link-color);
+    --tg-theme-accent-color: var(--agi-secondary-color);
+    --tg-theme-button-text-color: var(--agi-button-primary-text);
+    --tg-theme-button-color: var(--agi-button-primary-bg);
+    --tg-theme-button-hover-color: var(--agi-button-primary-hover-bg);
+    --tg-theme-hint-color: #6c757d;
+    --tg-theme-secondary-text-color: #6c757d;
+    --tg-theme-accent-color-hover: var(--agi-button-secondary-hover-bg);
+}
+
+body {
+    font-family: 'Roboto', 'Poppins', sans-serif; /* Utilise Poppins aussi */
+    margin: 0;
+    padding-bottom: 70px; /* Espace pour le footer */
+    box-sizing: border-box;
+    background-color: var(--agi-bg-color);
+    color: var(--agi-text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    /* Conserve l'image d'arrière-plan */
+    background-image: url('https://i.imgur.com/d53OUqF.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.app-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-header {
+    background-color: var(--agi-card-bg-color);
+    color: var(--agi-text-color);
+    padding: 1em 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 768px; /* Taille maximale pour les appareils mobiles/tablettes */
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.app-header .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.app-header .logo a {
+    text-decoration: none; /* Supprime le soulignement du lien du logo */
+    color: inherit; /* Hérite la couleur du texte parent */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-header .logo-img {
+    height: 60px;
+    margin-bottom: 5px;
+}
+
+.app-header .logo-text {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--agi-primary-color);
+    text-align: center;
+}
+
+.header-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.header-icons a {
+    color: var(--agi-link-color);
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.header-icons a i {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.header-icons a:hover {
+    color: var(--agi-link-hover-color);
+}
+
+.container {
+    width: 95%;
+    max-width: 768px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-header {
+    margin-bottom: 2em;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1em auto; /* Centrer l'avatar */
+    border: 3px solid var(--agi-border-color);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header h1 {
+    color: var(--agi-primary-color);
+    margin-bottom: 0.5em;
+    font-size: 1.8em;
+}
+
+.profile-header .kyc-status {
+    color: var(--agi-secondary-text-color);
+    font-size: 1em;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-header .kyc-status i {
+    margin-right: 8px;
+}
+
+.profile-header .verified {
+    color: var(--agi-secondary-color); /* Vert pour vérifié */
+    font-weight: bold;
+}
+
+.profile-header .unverified {
+    color: #dc3545; /* Rouge pour non vérifié */
+    font-weight: bold;
+}
+
+
+.section-card {
+    margin-bottom: 2em;
+    text-align: left;
+    padding: 15px;
+    border: 1px solid var(--agi-border-color);
+    border-radius: 8px;
+    background-color: var(--agi-card-bg-color);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.section-card h2 {
+    color: var(--agi-secondary-color);
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+}
+
+.section-card h2 i {
+    margin-right: 10px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7em 0;
+    border-bottom: 1px dashed var(--agi-border-color);
+    font-size: 0.95em;
+    flex-wrap: wrap; /* Pour les petits écrans */
+}
+
+.detail-item .detail-label {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: var(--agi-text-color);
+    flex-basis: 45%; /* Pour aligner les labels à gauche */
+    min-width: 120px; /* Empêche de trop se réduire */
+}
+
+.detail-item .detail-label i {
+    margin-right: 8px;
+    color: var(--agi-link-color);
+}
+
+.detail-item span {
+    color: var(--agi-secondary-text-color);
+    flex-basis: 50%; /* Pour aligner les valeurs à droite */
+    text-align: right; /* Aligne le texte à droite */
+    word-break: break-word; /* Casse les longs mots/adresses */
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.edit-profile-section {
+    display: none; /* Initialement caché */
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: var(--agi-text-color);
+    font-size: 0.9em;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 0.7em;
+    margin-bottom: 1em;
+    border: 1px solid var(--agi-border-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 0.95em;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+select:focus {
+    border-color: var(--agi-primary-color);
+    outline: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end; /* Aligner les boutons à droite */
+    gap: 10px;
+    margin-top: 1em;
+}
+
+.form-actions button {
+    padding: 0.8em 1.5em;
+    border-radius: 8px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-actions button i {
+    margin-right: 8px;
+}
+
+.save-button {
+    background-color: var(--agi-button-primary-bg);
+    color: var(--agi-button-primary-text);
+}
+
+.save-button:hover {
+    background-color: var(--agi-button-primary-hover-bg);
+    transform: translateY(-2px);
+}
+
+.cancel-button {
+    background-color: #f8d7da; /* Rouge clair pour annuler */
+    color: #721c24;
+}
+
+.cancel-button:hover {
+    background-color: #f5c6cb;
+    transform: translateY(-2px);
+}
+
+.action-buttons-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1.5em;
+    flex-wrap: wrap;
+}
+
+.action-buttons-group .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8em 1.5em;
+    background-color: var(--agi-button-primary-bg);
+    color: var(--agi-button-primary-text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: none;
+    flex-grow: 1;
+    min-width: 120px;
+    max-width: 200px; /* Limite la largeur des boutons */
+}
+
+.action-buttons-group .button.secondary {
+    background-color: var(--agi-button-secondary-bg);
+}
+
+.action-buttons-group .button.danger { /* Nouveau style pour le bouton déconnexion */
+    background-color: #dc3545; /* Rouge pour les actions dangereuses */
+    color: white;
+}
+
+.action-buttons-group .button.kyc {
+    background-color: #6f42c1;
+}
+
+.action-buttons-group .button.market {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.action-buttons-group .button.send-agcoin {
+    background-color: #20c997;
+    color: white;
+}
+
+.action-buttons-group .button:hover {
+    background-color: var(--agi-button-primary-hover-bg);
+    transform: translateY(-2px);
+}
+
+.action-buttons-group .button.secondary:hover {
+    background-color: var(--agi-button-secondary-hover-bg);
+}
+
+.action-buttons-group .button.danger:hover {
+    background-color: #c82333;
+}
+
+.action-buttons-group .button.kyc:hover {
+    background-color: #5a359b;
+}
+
+.action-buttons-group .button.market:hover {
+    background-color: #e0a800;
+}
+
+.action-buttons-group .button.send-agcoin:hover {
+    background-color: #1aa67f;
+}
+
+.action-buttons-group .button i {
+    margin-right: 8px;
+}
+
+.activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activity-list li {
+    padding: 0.8em 0;
+    border-bottom: 1px dashed var(--agi-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.95em;
+    flex-wrap: wrap;
+}
+
+.activity-list li:last-child {
+    border-bottom: none;
+}
+
+.activity-list .activity-icon {
+    margin-right: 10px;
+    color: var(--agi-link-color);
+}
+
+.activity-list .activity-timestamp {
+    color: var(--agi-secondary-text-color);
+    font-size: 0.85em;
+    flex-shrink: 0;
+    margin-left: auto; /* Pousse le timestamp à droite */
+}
+
+.view-all {
+    display: inline-block;
+    margin-top: 1em;
+    color: var(--agi-link-color);
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.view-all i {
+    margin-left: 5px;
+}
+
+.view-all:hover {
+    color: var(--agi-link-hover-color);
+}
+
+.settings-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.settings-list li {
+    padding: 0.7em 0;
+    border-bottom: 1px dashed var(--agi-border-color);
+}
+
+.settings-list li:last-child {
+    border-bottom: none;
+}
+
+.settings-list li a {
+    color: var(--agi-text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.settings-list li a i {
+    margin-right: 10px;
+}
+
+.settings-list li a:hover {
+    color: var(--agi-link-hover-color);
+}
+
+.settings-list li a.warning {
+    color: #dc3545;
+}
+
+.settings-list li a.warning:hover {
+    color: #b02a37;
+}
+
+.app-footer {
+    background-color: var(--agi-card-bg-color);
+    color: var(--agi-secondary-text-color);
+    padding: 1em 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 768px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+    z-index: 99;
+}
+
+.app-footer .footer-links {
+    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.app-footer .footer-links a {
+    color: var(--agi-link-color);
+    text-decoration: none;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.app-footer .footer-links a i {
+    margin-right: 5px;
+}
+
+.app-footer .footer-links a:hover {
+    text-decoration: underline;
+    color: var(--agi-link-hover-color);
+}
+
+.app-footer p {
+    font-size: 0.85em;
+    margin: 0;
+}
+
+/* Messages d'information (Toast) */
+#message-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    z-index: 1000;
+}
+
+.toast-message {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.95em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.5s ease-out, fadeOut 0.5s ease-in 4.5s forwards;
+    opacity: 0;
+}
+
+.toast-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.toast-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.toast-message.info { /* Nouveau style pour les messages d'info */
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .app-header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1em 10px;
+    }
+    .app-header .logo {
+        flex-basis: auto;
+    }
+    .app-header .logo-text {
+        font-size: 0.9em;
+    }
+    .header-icons {
+        gap: 5px;
+    }
+    .header-icons a {
+        font-size: 0.7em;
+    }
+    .header-icons a i {
+        font-size: 1.5em;
+    }
+    .container {
+        padding: 15px;
+        margin: 10px auto;
+    }
+    .detail-item, .activity-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .detail-item .detail-label {
+        margin-bottom: 5px;
+        flex-basis: 100%; /* Occupe toute la largeur sur mobile */
+        text-align: left;
+    }
+    .detail-item span {
+        text-align: left; /* Aligne la valeur à gauche sur mobile */
+        flex-basis: 100%;
+        padding-left: 30px; /* Indentation pour aligner avec l'icône du label */
+        box-sizing: border-box;
+    }
+    .activity-list .activity-timestamp {
+        align-self: flex-start;
+        padding-left: 30px;
+    }
+    .action-buttons-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .action-buttons-group .button {
+        width: 100%;
+        min-width: unset;
+        max-width: unset; /* Supprime la limite max-width sur mobile */
+    }
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .form-actions button {
+        width: 100%;
+    }
+    .app-footer .footer-links {
+        gap: 10px;
+    }
+}

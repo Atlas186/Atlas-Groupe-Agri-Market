@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Atlas Groupe International & AGRI-MARKET</title>
+    <meta name="description" content="Connectez-vous à votre compte Atlas Groupe AGRI-MARKET pour accéder au marché agricole du Burkina Faso.">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Variables CSS pour faciliter la maintenance */
+        :root {
+            --primary-color: #4CAF50; /* Vert Agriculture */
+            --secondary-color: #333; /* Texte foncé */
+            --text-color: #555; /* Texte secondaire */
+            --bg-light: #f4f7f6; /* Arrière-plan léger */
+            --bg-white: #fff; /* Arrière-plan blanc */
+            --border-color: #e0e0e0;
+            --success-color: #2e8b57;
+            --error-color: #b22222;
+
+            /* Espacements */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
+
+            /* Tailles de police */
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-md: 1rem;
+            --font-size-lg: 1.25rem;
+            --font-size-xl: 1.5rem;
+            --font-size-xxl: 2rem;
+
+            /* Autres */
+            --border-radius: 8px;
+            --border-radius-sm: 4px;
+            --button-radius: 30px;
+            --box-shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.08);
+            --box-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s ease-in-out;
+        }
+
+        /* Réinitialisation et styles de base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://i.imgur.com/d53OUqF.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: var(--spacing-md);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 450px;
+            padding: var(--spacing-xl);
+            background-color: var(--bg-white);
+            box-shadow: var(--box-shadow-md);
+            border-radius: var(--border-radius);
+            box-sizing: border-box;
+            margin: var(--spacing-md) 0;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            font-weight: bold;
+            color: var(--secondary-color);
+            font-size: var(--font-size-md);
+        }
+        
+        .form-group label i {
+            margin-right: var(--spacing-xs);
+            color: var(--primary-color);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            box-sizing: border-box;
+            font-size: var(--font-size-md);
+            color: var(--secondary-color);
+            background-color: var(--bg-light);
+            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+            outline: none;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: var(--spacing-md);
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-color);
+            font-size: var(--font-size-md);
+            padding: var(--spacing-xs);
+            transition: color var(--transition-speed);
+        }
+
+        .toggle-password:hover {
+            color: var(--secondary-color);
+        }
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .password-container input {
+            padding-right: 3rem;
+        }
+
+        .terms-container {
+            display: flex;
+            align-items: center;
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            font-size: var(--font-size-sm);
+        }
+
+        .terms-container input[type="checkbox"] {
+            margin-right: var(--spacing-sm);
+            transform: scale(1.2);
+        }
+
+        .terms-container label {
+            font-weight: normal;
+            display: inline;
+            color: var(--text-color);
+        }
+
+        .terms-container a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: text-decoration var(--transition-speed);
+        }
+
+        .terms-container a:hover {
+            text-decoration: underline;
+        }
+
+        .submit-button {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border: none;
+            border-radius: var(--button-radius);
+            cursor: pointer;
+            font-size: var(--font-size-lg);
+            transition: background-color var(--transition-speed), transform 0.2s ease-in-out;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: var(--box-shadow-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .submit-button:hover {
+            background-color: #388E3C;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .status-message {
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-size: var(--font-size-md);
+            font-weight: 600;
+            box-shadow: var(--box-shadow-sm);
+        }
+
+        .status-message.success {
+            background-color: #e8f5e9;
+            color: var(--success-color);
+            border: 1px solid var(--success-color);
+        }
+
+        .status-message.error {
+            background-color: #ffebee;
+            color: var(--error-color);
+            border: 1px solid var(--error-color);
+        }
+
+        .link {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            color: var(--text-color);
+            font-size: var(--font-size-sm);
+        }
+
+        .link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Queries pour la réactivité */
+        @media (max-width: 480px) {
+            .container {
+                padding: var(--spacing-lg);
+            }
+            .logo {
+                max-width: 120px;
+            }
+            h2 {
+                font-size: var(--font-size-xl);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="https://i.imgur.com/6YRySSd.jpeg" alt="Logo Atlas Groupe International" class="logo">
+        </div>
+        <h2>CONNECTEZ-VOUS À VOTRE COMPTE AGRI-MARKET</h2>
+        <form id="loginForm" novalidate>
+            <div class="form-group">
+                <label for="usernameOrEmail"><i class="ri-user-line" aria-hidden="true"></i> Nom d'utilisateur ou Email:</label>
+                <input type="text" id="usernameOrEmail" name="usernameOrEmail" required autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password"><i class="ri-lock-line" aria-hidden="true"></i> Mot de Passe :</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                    <button type="button" id="togglePassword" class="toggle-password" aria-label="Afficher/masquer le mot de passe">
+                        <i class="ri-eye-line" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="terms-container">
+                <input type="checkbox" id="terms" name="terms" required aria-required="true">
+                <label for="terms">J'accepte les <a href="conditions.html" target="_blank" rel="noopener noreferrer">conditions générales d'utilisation</a></label>
+            </div>
+
+            <button type="submit" class="submit-button"><i class="ri-login-box-line" aria-hidden="true"></i> SE CONNECTER</button>
+        </form>
+        <div id="statusMessage" class="status-message" role="alert" aria-live="polite"></div>
+        <div class="link">
+            <a id="registerLink" href="registre.html">Pas de compte ? Créez-en un ici.</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('loginForm');
+            const usernameOrEmailInput = document.getElementById('usernameOrEmail');
+            const passwordInput = document.getElementById('password');
+            const termsCheckbox = document.getElementById('terms');
+            const statusMessageDiv = document.getElementById('statusMessage');
+
+            function setupPasswordToggle(inputId, buttonId) {
+                const passwordInput = document.getElementById(inputId);
+                const toggleButton = document.getElementById(buttonId);
+
+                if (passwordInput && toggleButton) {
+                    toggleButton.addEventListener('click', () => {
+                        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                        passwordInput.setAttribute('type', type);
+                        toggleButton.querySelector('i').className = type === 'password' ? 'ri-eye-line' : 'ri-eye-off-line';
+                        passwordInput.focus();
+                    });
+                }
+            }
+
+            setupPasswordToggle('password', 'togglePassword');
+
+            loginForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                const usernameOrEmail = usernameOrEmailInput.value.trim();
+                const password = passwordInput.value;
+                const termsAccepted = termsCheckbox.checked;
+
+                displayStatus(statusMessageDiv, '', ''); // Clear previous messages
+
+                if (!usernameOrEmail || !password) {
+                    displayStatus(statusMessageDiv, 'Veuillez remplir tous les champs.', 'error');
+                    return;
+                }
+
+                if (!termsAccepted) {
+                    displayStatus(statusMessageDiv, 'Vous devez accepter les conditions générales d\'utilisation.', 'error');
+                    return;
+                }
+
+                // *** LOGIQUE DE CONNEXION AVEC LOCALSTORAGE ***
+                const storedUsers = localStorage.getItem('users');
+                if (storedUsers) {
+                    const users = JSON.parse(storedUsers);
+                    const user = users.find(u => (u.username === usernameOrEmail || u.email === usernameOrEmail) && u.password === password);
+
+                    if (user) {
+                        displayStatus(statusMessageDiv, 'Connexion réussie ! Redirection vers votre profil...', 'success');
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('loggedInUser', JSON.stringify({ username: user.username, email: user.email })); // Store minimal user data
+
+                        setTimeout(() => {
+                            window.location.href = 'profil.html';
+                        }, 1500);
+                    } else {
+                        displayStatus(statusMessageDiv, 'Nom d\'utilisateur/email ou mot de passe incorrect.', 'error');
+                    }
+                } else {
+                    displayStatus(statusMessageDiv, 'Aucun compte enregistré. Veuillez vous inscrire d\'abord.', 'error');
+                }
+            });
+        });
+
+        function displayStatus(element, message, type) {
+            if (element) {
+                element.textContent = message;
+                element.className = 'status-message ' + type;
+            }
+        }
+    </script>
+</body>
+</html>

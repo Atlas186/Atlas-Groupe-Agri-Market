@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification d'identité (KYC) - Atlas Groupe International</title>
+    <meta name="description" content="Complétez votre vérification d'identité (KYC) pour accéder à toutes les fonctionnalités de votre compte Atlas Groupe International. Processus sécurisé et confidentiel.">
+    <meta name="keywords" content="KYC, vérification d'identité, Atlas Groupe International, compte, sécurité, blockchain, Burkina Faso">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-size='90' fill='%234CAF50'%3E%F0%9F%94%92%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"> 
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc4.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://i.imgur.com/d53OUqF.jpeg" as="image"> 
+    <link rel="preload" href="/css/kyc.css" as="style">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/kyc.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="logo">
+            <img src="https://i.imgur.com/6YRySSd.jpeg" alt="Logo Atlas Groupe International" class="logo-img" loading="eager">
+            <span class="logo-text">Atlas Groupe International</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="kycSection" class="form-section" aria-labelledby="formTitle">
+            <div class="form-header-logo">
+                <img src="https://i.imgur.com/Jz1tLkx.jpeg" alt="Logo Atlas Groupe International" class="logo-img" loading="lazy">
+            </div>
+            <h1 id="formTitle" class="form-title">Vérification d'identité (KYC)</h1>
+            <p class="form-description">Veuillez compléter le processus de vérification d'identité pour activer toutes les fonctionnalités de votre compte. Vos informations sont traitées en toute confidentialité.</p>
+            
+            <form id="kycForm" novalidate aria-describedby="kycVerificationStatus">
+                <div class="form-group">
+                    <label for="fullName" class="form-label"><i class="fas fa-user"></i> Nom complet <span class="required-indicator">*</span></label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Ex: Jean Dupont" autocomplete="name" required aria-required="true" class="form-input">
+                    <div class="error-message" id="fullNameError" role="alert" aria-live="polite"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthDate" class="form-label"><i class="fas fa-calendar-alt"></i> Date de naissance <span class="required-indicator">*</span></label>
+                    <input type="date" id="birthDate" name="birthDate" required aria-required="true" class="form-input">
+                    <div class="error-message" id="birthDateError" role="alert" aria-live="polite"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="country" class="form-label"><i class="fas fa-globe"></i> Pays de résidence <span class="required-indicator">*</span></label>
+                    <select id="country" name="country" autocomplete="country" required aria-required="true" class="form-input form-select">
+                        <option value="">Sélectionner votre pays</option>
+                        </select>
+                    <div class="error-message" id="countryError" role="alert" aria-live="polite"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="documentType" class="form-label"><i class="fas fa-id-card"></i> Type de document d'identité <span class="required-indicator">*</span></label>
+                    <select id="documentType" name="documentType" required aria-required="true" class="form-input form-select">
+                        <option value="">Sélectionner un type de document</option>
+                        <option value="nationalId">Carte nationale d'identité</option>
+                        <option value="passport">Passeport</option>
+                        <option value="driverLicense">Permis de conduire</option>
+                        <option value="residentPermit">Titre de séjour</option>
+                    </select>
+                    <div class="error-message" id="documentTypeError" role="alert" aria-live="polite"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="documentFront" class="form-label"><i class="fas fa-upload"></i> Recto du document <span class="required-indicator">*</span></label>
+                    <input type="file" id="documentFront" name="documentFront" accept="image/jpeg,image/png,application/pdf" required aria-required="true" class="form-input-file">
+                    <small class="form-text">Formats acceptés : JPG, PNG, PDF. Taille maximale : 5MB.</small>
+                    <div class="error-message" id="documentFrontError" role="alert" aria-live="polite"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="documentBack" class="form-label"><i class="fas fa-upload"></i> Verso du document</label>
+                    <input type="file" id="documentBack" name="documentBack" accept="image/jpeg,image/png,application/pdf" class="form-input-file">
+                    <small class="form-text">Si votre document a un verso (ex: CNI), veuillez également le télécharger. Non obligatoire pour un passeport.</small>
+                    <div class="error-message" id="documentBackError" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-camera"></i> Selfie avec document d'identité <span class="required-indicator">*</span></label>
+                    <div class="selfie-camera-container">
+                        <video id="selfieVideo" class="selfie-video" autoplay playsinline muted style="display:none;" aria-label="Aperçu de la caméra pour le selfie"></video>
+                        <canvas id="selfieCanvas" style="display:none;" aria-hidden="true"></canvas>
+                        <img id="selfiePreview" class="selfie-preview-image" style="display:none;" alt="Aperçu de votre selfie avec le document d'identité">
+                        <div class="selfie-buttons">
+                            <button type="button" id="startCameraButton" class="button"><i class="fas fa-video"></i> Démarrer la caméra</button>
+                            <button type="button" id="takeSelfieButton" class="button" style="display:none;" disabled><i class="fas fa-camera"></i> Prendre la photo</button>
+                            <button type="button" id="retakeSelfieButton" class="button" style="display:none;"><i class="fas fa-redo-alt"></i> Reprendre</button>
+                        </div>
+                        <p class="selfie-status-message" id="selfieStatus" aria-live="polite">Veuillez prendre un selfie clair en tenant votre document d'identité près de votre visage.</p>
+                        <div class="error-message" id="selfieDataError" role="alert" aria-live="polite"></div>
+                    </div>
+                    <input type="hidden" id="selfieData" name="selfieData" required aria-required="true">
+                </div>
+
+                <button type="submit" class="submit-button kyc-verification" id="submitKycBtn">
+                    <span class="button-text">Soumettre pour vérification</span>
+                    <i class="fas fa-spinner fa-spin loading-spinner" aria-hidden="true" style="display: none;"></i>
+                </button>
+                <div id="kycVerificationStatus" class="status-message" role="status" aria-live="polite"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="conditions.html"><i class="fas fa-file-contract"></i> Conditions Générales</a>
+                <a href="confidentialite.html"><i class="fas fa-shield-alt"></i> Politique de Confidentialité</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Nous Contacter</a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> Atlas Groupe International - Bâtissons l'avenir ensemble.</p>
+        </div>
+    </footer>
+
+    <script src="/js/kyc.js" defer></script>
+</body>
+</html>

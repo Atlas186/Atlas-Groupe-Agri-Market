@@ -1,0 +1,744 @@
+/* --- Variables CSS pour les couleurs et thèmes AG-COIN --- */
+:root {
+    /* Couleurs primaires et secondaires */
+    --agi-primary-color: #007bff; /* Bleu Atlas Groupe International */
+    --agi-secondary-color: #28a745; /* Vert Atlas Groupe International */
+
+    /* Couleurs de texte et d'arrière-plan */
+    --agi-text-color: #333;
+    --agi-bg-color: #E8F5E9; /* Vert très clair */
+    --agi-card-bg-color: #fff;
+    --agi-border-color: #dee2e6;
+    --agi-link-color: #007bff; /* Bleu pour les icônes et liens */
+    --agi-link-hover-color: #0056b3;
+    --agi-secondary-text-color: #6c757d; /* Gris pour les textes secondaires/indices */
+
+    /* Boutons */
+    --agi-button-primary-bg: var(--agi-primary-color);
+    --agi-button-primary-text: #fff;
+    --agi-button-primary-hover-bg: #0056b3;
+    --agi-button-secondary-bg: var(--agi-secondary-color);
+    --agi-button-secondary-text: #fff;
+    --agi-button-secondary-hover-bg: #1e7e34;
+
+    /* Spécifiques Telegram (si pertinent) */
+    --tg-theme-text-color: var(--agi-text-color);
+    --tg-theme-secondary-bg-color: rgba(255, 255, 255, 0.8);
+    --tg-theme-link-color: var(--agi-link-color);
+    --tg-theme-accent-color: var(--agi-secondary-color);
+    --tg-theme-button-text-color: var(--agi-button-primary-text);
+    --tg-theme-button-color: var(--agi-button-primary-bg);
+    --tg-theme-button-hover-color: var(--agi-button-primary-hover-bg);
+    --tg-theme-hint-color: #6c757d;
+    --tg-theme-accent-color-hover: var(--agi-button-secondary-hover-bg);
+
+    /* Espacements et tailles standard */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 25px;
+
+    /* Rayons de bordure */
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+
+    /* Ombres */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-button: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Styles Généraux / Réinitialisation --- */
+*, *::before, *::after {
+    box-sizing: border-box; /* S'assure que padding et border sont inclus dans la largeur/hauteur */
+}
+
+html {
+    scroll-behavior: smooth; /* Défilement doux pour les ancres */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding-bottom: 70px; /* Espace pour le footer */
+    background-color: var(--agi-bg-color);
+    color: var(--agi-text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+
+    /* Optimisation de l'image de fond */
+    background-image: url('../img/background.jpeg'); /* Chemin relatif correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Rend l'image fixe */
+}
+
+/* Cache visuellement mais reste accessible aux lecteurs d'écran */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Lien d'accès rapide pour l'accessibilité */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--agi-primary-color);
+    color: white;
+    padding: var(--spacing-sm);
+    z-index: 9999;
+    text-decoration: none;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* --- Conteneur principal de l'application --- */
+.app-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Header de l'application --- */
+.app-header {
+    background-color: var(--agi-card-bg-color);
+    color: var(--agi-text-color);
+    padding: var(--spacing-md) var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 768px;
+    box-sizing: border-box;
+    position: sticky; /* Reste en haut lors du défilement */
+    top: 0;
+    z-index: 100;
+}
+
+.app-header .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.app-header .logo-img {
+    height: 60px; /* Taille fixe */
+    margin-bottom: var(--spacing-xs);
+    border-radius: var(--border-radius-sm); /* Léger arrondi pour l'image */
+}
+
+.app-header .logo-text {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--agi-primary-color);
+    text-align: center;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne prématurément */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est trop long */
+}
+
+/* Icônes de notification et discussion */
+.header-icons-group { /* Renommé pour être plus générique */
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.header-icon-link { /* Renommé pour être plus spécifique */
+    color: var(--agi-link-color);
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.header-icon-link i {
+    font-size: 2em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.header-icon-link:hover {
+    color: var(--agi-link-hover-color);
+}
+
+/* --- Contenu principal (Main Container) --- */
+.container {
+    width: 95%;
+    max-width: 768px;
+    margin: var(--spacing-lg) auto;
+    padding: var(--spacing-xl);
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+/* --- Sections et cartes --- */
+.profile-header {
+    margin-bottom: 2em;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1em;
+    border: 3px solid var(--agi-border-color);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header h2 { /* Changer h1 en h2 pour la sémantique */
+    color: var(--agi-primary-color);
+    margin-bottom: 0.5em;
+    font-size: 1.8em;
+}
+
+.profile-header .profile-info { /* Non utilisé dans HTML actuel, mais gardé pour consistance */
+    color: var(--agi-secondary-text-color);
+    font-size: 0.95em;
+    margin-bottom: 0.3em;
+}
+
+.profile-header .profile-info i {
+    margin-right: 5px;
+}
+
+.section-card {
+    margin-bottom: 2em;
+    text-align: left;
+    padding: var(--spacing-md);
+    border: 1px solid var(--agi-border-color);
+    border-radius: var(--border-radius-md);
+    background-color: var(--agi-card-bg-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.section-card h2 {
+    color: var(--agi-secondary-color);
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+}
+
+.section-card h2 i {
+    margin-right: var(--spacing-sm);
+}
+
+/* Détails des éléments */
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centrer verticalement */
+    padding: 0.7em 0;
+    border-bottom: 1px dashed var(--agi-border-color);
+    font-size: 0.95em;
+    word-break: break-word; /* Gérer les longs textes comme les adresses */
+}
+
+.detail-item .detail-label {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: var(--agi-text-color);
+    flex-shrink: 0; /* Empêche le label de trop se réduire */
+    margin-right: var(--spacing-sm);
+}
+
+.detail-item .detail-label i {
+    margin-right: 8px;
+    color: var(--agi-link-color);
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item strong { /* Non utilisé actuellement, mais bon à garder */
+    font-weight: bold;
+    color: var(--agi-text-color);
+}
+
+.detail-item span {
+    color: var(--agi-secondary-text-color);
+    text-align: right; /* Aligner la valeur à droite */
+    flex-grow: 1; /* Permet à la valeur de prendre l'espace restant */
+}
+
+/* Formulaires */
+.edit-profile-section {
+    display: none; /* Initialement caché */
+}
+
+.form-group {
+    margin-bottom: 1em; /* Espace entre les groupes label/input */
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: var(--agi-text-color);
+    font-size: 0.9em;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 0.7em;
+    border: 1px solid var(--agi-border-color);
+    border-radius: var(--border-radius-sm);
+    box-sizing: border-box;
+    font-size: 0.95em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+select:focus {
+    border-color: var(--agi-primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Anneau de focus plus agréable */
+    outline: none;
+}
+
+/* Boutons de formulaire */
+.form-actions {
+    display: flex;
+    justify-content: flex-end; /* Aligner les boutons à droite */
+    gap: var(--spacing-md);
+    margin-top: 1.5em;
+}
+
+.form-actions button {
+    padding: 0.8em 1.5em;
+    border-radius: var(--border-radius-md);
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--shadow-button);
+}
+
+.save-button {
+    background-color: var(--agi-button-primary-bg);
+    color: var(--agi-button-primary-text);
+}
+
+.save-button:hover {
+    background-color: var(--agi-button-primary-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cancel-button {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.cancel-button:hover {
+    background-color: #f5c6cb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Boutons d'action génériques */
+.action-buttons-group {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: 1.5em;
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur petits écrans */
+}
+
+.action-buttons-group.top-buttons { /* Non utilisé actuellement */
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
+
+.action-buttons-group .button,
+.action-buttons-group a.button { /* Style pour les boutons et les liens qui agissent comme des boutons */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8em 1.5em;
+    background-color: var(--agi-button-primary-bg);
+    color: var(--agi-button-primary-text);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: none;
+    flex-grow: 1;
+    min-width: 120px;
+    box-shadow: var(--shadow-button);
+    white-space: nowrap; /* Empêche le texte du bouton de se couper */
+}
+
+.action-buttons-group .button.secondary {
+    background-color: var(--agi-button-secondary-bg);
+}
+
+.action-buttons-group .button.kyc {
+    background-color: #6f42c1; /* Violet */
+}
+
+.action-buttons-group .button.market {
+    background-color: #ffc107; /* Jaune/Orange */
+    color: #333;
+}
+
+.action-buttons-group .button.send-agcoin {
+    background-color: #20c997; /* Vert aquamarine */
+    color: white;
+}
+
+.action-buttons-group .button:hover,
+.action-buttons-group a.button:hover {
+    background-color: var(--agi-button-primary-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.action-buttons-group .button.secondary:hover {
+    background-color: var(--agi-button-secondary-hover-bg);
+}
+
+.action-buttons-group .button.kyc:hover {
+    background-color: #5a359b;
+}
+
+.action-buttons-group .button.market:hover {
+    background-color: #e0a800;
+}
+
+.action-buttons-group .button.send-agcoin:hover {
+    background-color: #1aa67f;
+}
+
+.action-buttons-group .button i,
+.action-buttons-group a.button i {
+    margin-right: 8px;
+}
+
+/* Listes d'activités et de paramètres */
+.activity-list, .settings-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activity-list li, .settings-list li {
+    padding: 0.8em 0;
+    border-bottom: 1px dashed var(--agi-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.95em;
+}
+
+.activity-list li:last-child, .settings-list li:last-child {
+    border-bottom: none;
+}
+
+.activity-list .activity-icon {
+    margin-right: var(--spacing-sm);
+    color: var(--agi-link-color);
+}
+
+.activity-list .activity-timestamp {
+    color: var(--agi-secondary-text-color);
+    font-size: 0.85em;
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.view-all {
+    display: inline-block;
+    margin-top: 1em;
+    color: var(--agi-link-color);
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.view-all i {
+    margin-left: 5px;
+}
+
+.view-all:hover {
+    color: var(--agi-link-hover-color);
+    text-decoration: underline;
+}
+
+.settings-list li a {
+    color: var(--agi-text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+    flex-grow: 1; /* Permet au lien de prendre toute la largeur */
+}
+
+.settings-list li a i {
+    margin-right: var(--spacing-sm);
+}
+
+.settings-list li a:hover {
+    color: var(--agi-link-hover-color);
+}
+
+.settings-list li a.warning {
+    color: #dc3545;
+}
+
+.settings-list li a.warning:hover {
+    color: #b02a37;
+}
+
+/* --- Footer de l'application --- */
+.app-footer {
+    background-color: var(--agi-card-bg-color);
+    color: var(--agi-secondary-text-color);
+    padding: 1em var(--spacing-lg);
+    text-align: center;
+    width: 100%;
+    max-width: 768px;
+    box-sizing: border-box;
+    position: fixed; /* Reste en bas de l'écran */
+    bottom: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+    z-index: 99;
+}
+
+.app-footer .footer-links {
+    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.app-footer .footer-links a {
+    color: var(--agi-link-color);
+    text-decoration: none;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.app-footer .footer-links a i {
+    margin-right: 5px;
+}
+
+.app-footer .footer-links a:hover {
+    text-decoration: underline;
+    color: var(--agi-link-hover-color);
+}
+
+.app-footer p {
+    font-size: 0.85em;
+    margin: 0;
+}
+
+/* --- Styles spécifiques pour le statut KYC --- */
+.profile-header .verified, #solanaConnectionStatus.verified {
+    color: var(--agi-secondary-color); /* Vert pour vérifié */
+    font-weight: bold;
+}
+
+.profile-header .unverified, #solanaConnectionStatus.unverified {
+    color: #dc3545; /* Rouge pour non vérifié */
+    font-weight: bold;
+}
+
+/* --- Messages d'information (Toast) --- */
+#message-container {
+    position: fixed;
+    top: var(--spacing-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm); /* Espace entre les messages */
+}
+
+.toast-message {
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.95em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.5s ease-out, fadeOut 0.5s ease-in forwards;
+    opacity: 0;
+    will-change: opacity, transform; /* Optimisation de l'animation */
+}
+
+.toast-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.toast-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.toast-message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px) translateX(-50%); }
+    to { opacity: 1; transform: translateY(0) translateX(-50%); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0) translateX(-50%); }
+    to { opacity: 0; transform: translateY(-20px) translateX(-50%); }
+}
+
+/* Styles pour les placeholders de chargement (skeletons) */
+.skeleton-text {
+    background-color: #e0e0e0; /* Couleur grise du skeleton */
+    height: 1em; /* Hauteur de ligne */
+    border-radius: 4px;
+    margin-bottom: 0.5em;
+    animation: pulse 1.5s infinite ease-in-out; /* Animation subtile */
+}
+
+.skeleton-text:nth-child(even) {
+    width: 90%; /* Pour varier les longueurs de ligne */
+}
+
+.skeleton-text:nth-child(odd) {
+    width: 80%;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 600px) {
+    .app-header {
+        flex-direction: row; /* Garder les éléments sur une ligne si possible */
+        justify-content: space-between;
+        padding: 1em var(--spacing-sm); /* Ajuster le padding */
+    }
+    .app-header .logo {
+        flex-basis: auto; /* Laisser le logo prendre sa largeur naturelle */
+    }
+    .app-header .logo-text {
+        font-size: 0.9em; /* Réduire la taille du texte du logo sur mobile */
+    }
+    .header-icons-group {
+        gap: var(--spacing-xs); /* Réduire l'espace entre les icônes sur mobile */
+    }
+    .header-icon-link {
+        font-size: 0.7em; /* Réduire la taille du texte des icônes sur mobile */
+    }
+    .header-icon-link i {
+        font-size: 1.5em; /* Réduire la taille des icônes sur mobile */
+    }
+    .container {
+        padding: var(--spacing-md);
+        margin: var(--spacing-sm) auto;
+    }
+    .detail-item, .activity-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .detail-item .detail-label {
+        margin-bottom: var(--spacing-xs); /* Espace entre l'icône/label et la valeur sur mobile */
+    }
+    .detail-item span {
+        text-align: left; /* Aligner la valeur à gauche sur mobile */
+    }
+    .activity-list .activity-timestamp {
+        align-self: flex-end;
+    }
+    .action-buttons-group {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    .action-buttons-group .button,
+    .action-buttons-group a.button {
+        width: 100%;
+        min-width: unset;
+    }
+    .form-actions {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    .form-actions button {
+        width: 100%;
+    }
+    .app-footer .footer-links {
+        gap: var(--spacing-sm); /* Réduire l'espace entre les liens du footer sur mobile */
+    }
+}
+
+/* Styles pour le mode sombre (Exemple d'implémentation future) */
+@media (prefers-color-scheme: dark) {
+    /*
+    body {
+        background-color: #1a1a1a;
+        color: #f0f0f0;
+    }
+    .app-header, .container, .section-card, .app-footer {
+        background-color: #2c2c2c;
+        color: #f0f0f0;
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+    }
+    :root {
+        --agi-text-color: #f0f0f0;
+        --agi-card-bg-color: #2c2c2c;
+        --agi-border-color: #444;
+        --agi-secondary-text-color: #aaa;
+    }
+    */
+}

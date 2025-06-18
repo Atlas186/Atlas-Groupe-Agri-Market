@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Profil - Atlas Groupe International</title>
+
+    <meta name="description" content="Gérez votre profil AGRI-MARKET, consultez vos soldes AG-COIN et accédez aux services Atlas Groupe International.">
+    <meta name="keywords" content="Atlas Groupe International, AGRI-MARKET, AG-COIN, profil, Solana, crypto, blockchain, agriculture, Burkina Faso">
+    <meta name="author" content="Atlas Groupe International">
+    <meta name="theme-color" content="#007bff"> <link rel="icon" href="/assets/img/favicon.ico" sizes="any">
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png"> <link rel="manifest" href="/manifest.webmanifest"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style">
+    <link rel="preload" href="/assets/img/logo_atlas.jpeg" as="image">
+    <link rel="preload" href="/assets/img/avatar_placeholder.jpeg" as="image">
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js" defer></script>
+    <script src="https://unpkg.com/@solana/spl-token@latest/lib/index.iife.js" defer></script>
+</head>
+<body>
+    <div class="app-container">
+        <a href="#main-content" class="skip-link">Aller au contenu principal</a> <header class="app-header" role="banner">
+            <div class="header-icons-group">
+                <a href="notifications.html" class="header-icon-link" aria-label="Notifications" title="Voir vos notifications">
+                    <i class="fas fa-bell" aria-hidden="true"></i>
+                    <span>NOTIFICATIONS</span>
+                </a>
+            </div>
+
+            <div class="logo">
+                <img src="/assets/img/logo_atlas.jpeg" alt="Logo Atlas Groupe International" class="logo-img" loading="lazy">
+                <span class="logo-text">Atlas Groupe International</span>
+            </div>
+
+            <div class="header-icons-group">
+                <a href="communaute.html" class="header-icon-link" aria-label="Accéder à la communauté" title="Rejoindre la discussion">
+                    <i class="fas fa-comments" aria-hidden="true"></i>
+                    <span>DISCUSSION</span>
+                </a>
+            </div>
+        </header>
+
+        <main id="main-content" class="container" role="main" aria-labelledby="main-heading">
+            <h1 id="main-heading" class="sr-only">Profil Utilisateur</h1> <div id="message-container" aria-live="polite" aria-atomic="true"></div> <section class="profile-header">
+                <img src="/assets/img/avatar_placeholder.jpeg" alt="Avatar de l'utilisateur" class="profile-avatar" id="profileAvatar" loading="lazy">
+                <h2 id="welcomeName">Bienvenue dans votre Compte AGRI-MARKET</h2>
+            </section>
+
+            <section class="section-card" id="profileDetailsSection" aria-labelledby="personal-info-heading">
+                <h2 id="personal-info-heading"><i class="fas fa-id-card" aria-hidden="true"></i> Informations Personnelles</h2>
+                <div class="detail-item">
+                    <span class="detail-label"><i class="fas fa-user" aria-hidden="true"></i>Nom complet:</span>
+                    <span id="fullName">Chargement...</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Date de naissance:</span>
+                    <span id="birthDate">Chargement...</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label"><i class="fas fa-file-alt" aria-hidden="true"></i>Type de document:</span>
+                    <span id="documentType">Chargement...</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label"><i class="fas fa-globe-africa" aria-hidden="true"></i>Pays de résidence:</span>
+                    <span id="country">Chargement...</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label"><i class="fas fa-user-plus" aria-hidden="true"></i>Membre depuis:</span>
+                    <span id="membershipDate">Chargement...</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label"><i class="fas fa-certificate" aria-hidden="true"></i>Statut KYC:</span>
+                    <span id="kycStatusText">Chargement...</span>
+                </div>
+                <div class="action-buttons-group">
+                    <button id="editProfileButton" class="button" type="button" title="Modifier vos informations personnelles">
+                        <i class="fas fa-edit" aria-hidden="true"></i> Modifier le profil
+                    </button>
+                    <a href="KYC.html" id="kycVerificationButton" class="button kyc" role="button" title="Vérifier votre identité (KYC)">
+                        <i class="fas fa-user-check" aria-hidden="true"></i> Vérification KYC
+                    </a>
+                </div>
+            </section>
+
+            <section class="section-card edit-profile-section" id="editProfileSection" aria-labelledby="edit-info-heading" style="display: none;">
+                <h2 id="edit-info-heading"><i class="fas fa-edit" aria-hidden="true"></i> Modifier vos Informations</h2>
+                <form id="editProfileForm">
+                    <div class="form-group">
+                        <label for="editFirstName"><i class="fas fa-user" aria-hidden="true"></i> Prénom:</label>
+                        <input type="text" id="editFirstName" name="firstName" required aria-required="true">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editLastName"><i class="fas fa-user" aria-hidden="true"></i> Nom:</label>
+                        <input type="text" id="editLastName" name="lastName" required aria-required="true">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editBirthDate"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Date de naissance:</label>
+                        <input type="date" id="editBirthDate" name="birthDate">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editCountry"><i class="fas fa-globe-africa" aria-hidden="true"></i> Pays de résidence:</label>
+                        <select id="editCountry" name="country"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editDocumentType"><i class="fas fa-file-alt" aria-hidden="true"></i> Type de document:</label>
+                        <input type="text" id="editDocumentType" name="documentType">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="save-button" title="Enregistrer les modifications">
+                            <i class="fas fa-save" aria-hidden="true"></i> Enregistrer
+                        </button>
+                        <button type="button" id="cancelEditButton" class="cancel-button" title="Annuler les modifications">
+                            <i class="fas fa-times" aria-hidden="true"></i> Annuler
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="section-card solana-info-section" aria-labelledby="solana-info-heading">
+                <h2 id="solana-info-heading"><i class="fab fa-solana" aria-hidden="true"></i> Informations AG-COIN (Solana)</h2>
+                <div class="detail-item">
+                    <span class="detail-label"><i class="fas fa-wallet" aria-hidden="true"></i>Adresse du Portefeuille:</span>
+                    <span id="solanaWalletAddress">Non connecté</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label"><i class="fas fa-coins" aria-hidden="true"></i>Solde SOL:</span>
+                    <span id="solBalance">0.00 SOL</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label"><i class="fas fa-hand-holding-usd" aria-hidden="true"></i>Solde AG-COIN:</span>
+                    <span id="agCoinBalance">0.00 AG-COIN</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label"><i class="fas fa-link" aria-hidden="true"></i>Statut de Connexion:</span>
+                    <span id="solanaConnectionStatus" class="unverified">Déconnecté</span>
+                </div>
+                <div class="action-buttons-group">
+                    <button id="connectSolanaButton" class="button" type="button" title="Connecter votre portefeuille Phantom ou autre portefeuille Solana">
+                        <i class="fas fa-plug" aria-hidden="true"></i> Connecter Votre Portefeuille
+                    </button>
+                    <a href="envoyer-ag-coin.html" id="sendAgCoinButton" class="button send-agcoin" role="button" title="Envoyer des AG-COIN à une autre adresse" style="display:none;">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i> ENVOYER AG-COIN
+                    </a>
+                    <button id="disconnectSolanaButton" class="button cancel-button" type="button" title="Déconnecter votre portefeuille Solana" style="display:none;">
+                        <i class="fas fa-power-off" aria-hidden="true"></i> Déconnecter
+                    </button>
+                    <a href="buy-crypto.html" id="depositButton" class="button secondary" role="button" title="Déposer des AG-COIN sur votre compte">
+                        <i class="fas fa-money-bill-wave" aria-hidden="true"></i> DÉPOSER AG-COIN
+                    </a>
+                    <a href="sell-ag-coin.html" id="withdrawButton" class="button secondary" role="button" title="Retirer des AG-COIN de votre compte">
+                        <i class="fas fa-wallet" aria-hidden="true"></i> RETIRER AG-COIN
+                    </a>
+                    <a href="home.html" id="agriculturalMarketButton" class="button market" role="button" title="Accéder au marché agricole pour acheter/vendre des produits">
+                        <i class="fas fa-seedling" aria-hidden="true"></i> MARCHÉ AGRICOLE
+                    </a>
+                </div>
+            </section>
+
+            <section class="section-card profile-activity" aria-labelledby="activity-heading">
+                <h2 id="activity-heading"><i class="fas fa-history" aria-hidden="true"></i> Activité Récente</h2>
+                <ul class="activity-list" id="recentActivity">
+                    <li><div class="skeleton-text"></div></li> <li><div class="skeleton-text"></div></li>
+                </ul>
+                <a href="all-activity.html" class="view-all" title="Voir l'historique complet de vos activités">
+                    Voir toute l'activité <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </section>
+
+            <section class="section-card profile-settings" aria-labelledby="settings-heading">
+                <h2 id="settings-heading"><i class="fas fa-cog" aria-hidden="true"></i> Paramètres du Compte</h2>
+                <ul class="settings-list">
+                    <li>
+                        <a href="change-password.html" title="Changer votre mot de passe">
+                            <i class="fas fa-key" aria-hidden="true"></i> Changer le mot de passe
+                        </a>
+                    </li>
+                    <li>
+                        <a href="notifications.html" title="Gérer les paramètres de notification">
+                            <i class="fas fa-bell" aria-hidden="true"></i> Gérer les notifications
+                        </a>
+                    </li>
+                    <li>
+                        <a href="security.html" title="Paramètres de sécurité du compte">
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i> Sécurité
+                        </a>
+                    </li>
+                    <li>
+                        <a href="delete-account.html" class="warning" title="Supprimer définitivement votre compte">
+                            <i class="fas fa-trash-alt" aria-hidden="true"></i> Supprimer le compte
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="app-footer" role="contentinfo">
+            <nav class="footer-links" aria-label="Liens du pied de page">
+                <a href="conditions.html" title="Consulter les conditions d'utilisation">
+                    <i class="fas fa-file-contract" aria-hidden="true"></i>Conditions
+                </a>
+                <a href="confidentialite.html" title="Lire notre politique de confidentialité">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>Confidentialité
+                </a>
+                <a href="contact.html" title="Nous contacter">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>Contact
+                </a>
+            </nav>
+            <p>&copy; 2025 Atlas Groupe International, AGRI-MARKET & AG-COIN, Burkina Faso. Tous droits Réservés.</p>
+        </footer>
+    </div>
+
+    <script src="/assets/js/solana_utils.js" type="module" defer></script>
+    <script src="/assets/js/script.js" type="module" defer></script>
+</body>
+</html>
