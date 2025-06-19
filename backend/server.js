@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 5000; // Port par défaut 5000
 // IMPORTANT: En production, remplacez '*' par l'URL exacte de votre frontend.
 // Par exemple: origin: 'https://votre-frontend-agri-market.com'
 app.use(cors({
-    origin: '*', // Temporaire pour le développement local au Burkina Faso
+    origin: 'https://atlas-groupe-agri-market.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Autorise l'envoi de cookies/en-têtes d'authentification
 }));
