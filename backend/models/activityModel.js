@@ -1,5 +1,5 @@
 // Fichier: backend/models/activityModel.js
-import { query } from '../config/db.js';
+import pool from '../config/db.js';
 
 export const addActivity = async (userId, description, icon = null) => {
     const res = await query(

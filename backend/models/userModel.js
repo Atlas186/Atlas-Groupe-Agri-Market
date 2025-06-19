@@ -1,5 +1,5 @@
 // Fichier: backend/models/userModel.js
-import { query } from '../config/db.js';
+import pool from '../config/db.js';
 
 export const createUser = async (firstName, lastName, email, passwordHash) => {
     const res = await query(
